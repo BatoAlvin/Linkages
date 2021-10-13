@@ -3,9 +3,16 @@
   grid-template-columns: 20% 80%;
   
 }
-.content{
+/* .content{
   width: 100%;
   min-width: 640px;
+} */
+.content{
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 @media screen and (max-width:600px){
