@@ -1,0 +1,16 @@
+.contentBody{
+  display: grid;
+  grid-template-columns: 20% 80%;
+  
+}
+.content{
+  width: 100%;
+  min-width: 640px;
+}
+
+@media screen and (max-width:600px){
+  .contentBody{
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}
