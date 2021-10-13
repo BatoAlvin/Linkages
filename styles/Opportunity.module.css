@@ -1,12 +1,12 @@
 .card {
   color: #3f556b;
-  max-width: 340px;
-  height: 360px;
+  width: 300px;
+  height: 300px;
   background: #dee6ee;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
-  padding: 4px 12px 5px 15px;
+  padding: 4px 10px 5px 10px;
   border-radius: 3px;
-  margin: 12px;
+  margin: .8rem;
   cursor: pointer;
 }
 .card:hover {
@@ -17,7 +17,7 @@
   padding: 0;
 }
 .jobTitle {
-  font-size: 19px;
+  font-size: 1rem;
   color: #3f556b;
   padding-top: 15px;
   font-weight: bold;
@@ -32,13 +32,12 @@
 
 .deadline {
   color: #2980b9;
-  font-size: 16px;
-}
-.paragraph {
   font-size: 14px;
 }
-
-.container {
-  display: flex;
-  flex-direction: row; 
+.paragraph {
+  font-size: 13px;
 }
+
+/* .container {
+  display: flex;
+} */
