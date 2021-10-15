@@ -11,7 +11,7 @@ const Classwork = ({data}) => {
   return (
     <>
       <Head>
-        <title>EDU LINKAGES</title>
+        <title>JOBS</title>
         <meta name="description" content="Become a software developer" />
       </Head>
       {data.map((info)=>(
@@ -23,7 +23,7 @@ const Classwork = ({data}) => {
       <p className={styles.jobTitle}>{info.jobTitle}</p>
       <div className={styles.companyDetails}>
         <p className={styles.company}>{info.coName}</p>
-        <p className={styles.location}>location</p>
+ 
       </div>
       <div>
         <p className={styles.paragraph}>{info.jobDescription}</p>
@@ -46,23 +46,18 @@ const Classwork = ({data}) => {
 export default Classwork;
 
 
-
 export const getStaticProps = async () => {
   let data = []
   try{
       const projects = await getDocs(collection(db, "jobs"));   
    
       projects.forEach((doc) => {
-        data.push(
+       return data.push(
+         
           {
-             id: doc.id,
-             coName: doc.data().coName,
-             qualifications: doc.data().qualifications,
-             jobTitle: doc.data().jobTitle,
-             jobCategory: doc.data().jobCategory,
-             jobDescription: doc.data().jobDescription,
-             deadline: doc.data().deadline,
-             location: doc.data().location,
+             ...doc.data(),
+             id:doc.id
+             
         })
 
         }); 
@@ -78,5 +73,3 @@ export const getStaticProps = async () => {
       
   }
 }
-
-

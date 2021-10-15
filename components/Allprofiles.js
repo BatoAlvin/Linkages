@@ -8,7 +8,8 @@ import { useState } from "react";
 import {db} from '../firebase/firebase'
 import { collection,  getDocs } from "firebase/firestore";
 
-const Projects = ({data}) => {
+const Allprofiles = ({datas}) => {
+    console.log(datas)
   return(
     <>
      <Head>
@@ -18,20 +19,21 @@ const Projects = ({data}) => {
            <div className={styles.myClassSection}>
         <div className={styles.myClassBorder}>
           <div className={styles.myClassHeader}>
-           <Link href="/myClass/classwork">
-               <a className={styles.myClassActive}>ClassWork</a>
+           <Link href="">
+               <a className={styles.myClassActive}>AllProfiles</a>
              </Link>
         </div>
  
         <div className = {styles.projectContent}>
         <div className = {styles.projectDetail}>
-          {data.map((info)=>(
+          {datas.map((info)=>(
             
-    <div key = {info.id} >
-    <Link href = '/myClass/project/[id]' as = {`/myClass/project/${info.id}`} passHref>
-     <div>{info.title}</div>
+    <div key={info.id} >
+    <Link href = '/'>
+     <div> {info.coName}</div>
      </Link>
-     <div> {info.github}</div>
+     <div>  {info.jobDescription}</div>
+     <div>  {info.deadline}</div>
    </div>
    
     ))}
@@ -46,16 +48,16 @@ const Projects = ({data}) => {
   
 };
 
-export default Projects;
+export default Allprofiles;
 
 export const getStaticProps = async () => {
-  const data = []
+  let datas = []
   try{
-      const projects = await getDocs(collection(db, "lms_projects"));      
+      const projects = await getDocs(collection(db, "jobs"));      
       projects.forEach((doc) => {
-         data.push(Object.assign({
+         datas.push(Object.assign({
              id: doc.id
-         },doc.data()))
+         },doc.datas()))
         }); 
          
   }catch(err){
@@ -64,7 +66,7 @@ export const getStaticProps = async () => {
   
   return{
       props: {
-          data
+          datas
       }  
       
   }
