@@ -20,5 +20,11 @@ export const lms = [
         link:"/workoverview",
         icon: <MultilineChartIcon style = {{fill: '#41AD48'}}/>
     },
+    {
+        list: "Dummy",
+        link:"/dummy",
+        icon: <WorkIcon style = {{fill: '#41AD48'}}/>
+    },
  
 ] 
+   
