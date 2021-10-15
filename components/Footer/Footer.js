@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../../styles/Footer.module.css";
+import Image from "next/image";
+import logo from "../images/outbox.png";
 import Link from "next/link";
 import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi";
 function Footer() {
@@ -61,7 +63,15 @@ function Footer() {
       <div className={styles.copysection}>
         <Link href="/" className={styles.logo}>
           <a>
-             {/* <Image src={logo} alt="logo" width={100} height={40} /> */}
+            <Image
+              loader={({ src, width, quality }) => {
+                return `${src}`;
+              }}
+              src={logo}
+              alt="logo"
+              width={100}
+              height={40}
+            />
           </a>
         </Link>
         <div>
@@ -70,13 +80,13 @@ function Footer() {
           </p>
         </div>
         <div className={styles.social}>
-          <a href="https://facebook.com/">
+          <a href="https://facebook.com/OutboxEdu">
             <FiFacebook />
           </a>
-          <a href="https://linkedin.com/">
+          <a href="https://linkedin.com/company/outboxuganda/">
             <FiLinkedin />
           </a>
-          <a href="https://linkedin.com/">
+          <a href="https://twitter.com/EduOutbox">
             <FiTwitter />
           </a>
         </div>
