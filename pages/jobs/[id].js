@@ -29,11 +29,11 @@ const Project = ({info}) => {
                         
 
      <h4 style = {{color: '#096691',fontWeight: '900'}}>{info.coName}</h4>
-     <p style = {{color:'#000',fontWeight: '700'}}>Qualifications : {info.qualifications}</p>
-     <p style = {{color:'black',fontWeight: 'bold'}}> Job Title: {info.jobTitle} </p>
-     <p style = {{color:'black',fontWeight: 'bold'}}>Job Category: {info.jobCategory} </p>
-     <p style = {{color:'black',fontWeight: 'bold'}}> Job Description: {info.jobDescription}</p>
-     <p style = {{color:'#00ddff',fontWeight: 'bold'}}> Deadline {info.deadline} </p>
+     <p ><span>Qualifications :</span> {info.qualifications}</p>
+     <p> <span>Job Title:</span> {info.jobTitle} </p>
+     <p><span>Job Category: </span>{info.jobCategory} </p>
+     <p> <span>Job Description: </span>{info.jobDescription}</p>
+     <p style = {{color:'#00ddff',fontWeight: 'bold'}}>Deadline {info.deadline} </p>
    
                        
                         </div>

@@ -14,6 +14,7 @@ const Classwork = ({data}) => {
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
       </Head>
+     <div className={styles.major}>
       {data.map((info)=>(
         <div key={info.id}>
       <Link href="/jobs/[id]" as = {`/jobs/${info.id}`} passHref>
@@ -37,7 +38,9 @@ const Classwork = ({data}) => {
       </div>
       </Link>
       </div>
+
       ))}
+      </div>
     </>
   );
 };
