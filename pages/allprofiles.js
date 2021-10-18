@@ -28,10 +28,15 @@ function Profiles({ data}) {
                   </p>
                   <p className={styles.description}>{info.jobTItle}</p>
                 </a>
+
               </div>
+              
             </div>
+            
           ))}
+         
         </div>
+        
       </div>
     </section>
   );

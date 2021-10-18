@@ -11,18 +11,13 @@ export const lms = [
         icon: <PeopleIcon style = {{fill: '#41AD48'}}/>
     },
     {
-        list: "Profiles",
-        link:"/profiles",
+        list: "Create Profile",
+        link:"/createprofile",
         icon: <WorkIcon style = {{fill: '#41AD48'}}/>
     },
     {
-        list: "Overview",
-        link:"/workoverview",
-        icon: <MultilineChartIcon style = {{fill: '#41AD48'}}/>
-    },
-    {
-        list: "Dummy",
-        link:"/dummy",
+        list: "All Profiles",
+        link:"/allprofiles",
         icon: <WorkIcon style = {{fill: '#41AD48'}}/>
     },
  

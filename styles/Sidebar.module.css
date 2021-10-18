@@ -8,7 +8,7 @@
 
     .list li{
         list-style: none;
-       color: #40A9FF;
+       color: #40A9FF !important;
         line-height: 5;
     }
     .list li:hover {

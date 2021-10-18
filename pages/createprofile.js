@@ -9,36 +9,44 @@ import styles from "../styles/myClass.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import { db } from "../firebase/firebase";
+import {message,Alert} from 'antd';
+import 'antd/dist/antd.css';
 
 import { collection, addDoc, getDocs, getFirestore } from "firebase/firestore";
 
 function Work() {
   const db = getFirestore();
+  const [showAlert,setShowAlert] = useState(false);
 
   const initialRef = React.useRef();
   const finalRef = React.useRef();
 
   const [data, setData] = useState({
-    name: "",
-    title: "",
-    github: "",
-    article: "",
-    file: "",
+    fisrtName: "",
+    lastName: "",
+    imageUrl:"",
+    jobTItle:"",
+    description:"",
+    skills:"",
   });
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const docRef = await addDoc(collection(db, "lms_work"), data)
-      .then((docRef) => {
-        console.log("Project added", docRef.id);
-      })
-      .catch((error) => {
-        console.error("Error occurred while adding project", error);
-      });
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const docRef = await addDoc(collection(db, "profileApplications"), data)
+        .then((docRef) => {
+          console.log("Profile added", docRef.id);
+          setInterval(()=>{
+            setShowAlert(true)
+          },);
+        })
+        .catch((error) => {
+          console.error("Error occurred while adding profile", error);
+        });
+    };
+  
 
   const [open, setOpen] = React.useState(false);
 
@@ -57,7 +65,17 @@ function Work() {
         <div>
           <h1> EDU LEARNING COMMUNITY</h1>
           <h3>Welcome!!! </h3>
-          <h3>To create your profile simply click the button below, 🙂 </h3>
+          <h3>To create your profile simply click the button below, 🙂 </h3> 
+          <div>
+         {showAlert && 
+           <Alert
+           type='success'
+           message='Successful'
+           description='Profile has been sent'
+           style={{backgroundColor:'#5cb85c'}}
+           closable
+           />}
+           </div>
           <Button variant="contained" color="primary" onClick={handleClickOpen}>
             Add Profile
           </Button>
@@ -72,14 +90,14 @@ function Work() {
         <DialogTitle id="form-dialog-title">Add Profile</DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-            <TextField
+          <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Name"
+              label="First Name"
               type="text"
-              name="name"
-              value={data.name}
+              name="fisrtName"
+              value={data.fisrtName}
               onChange={handleChange}
               fullWidth
             />
@@ -88,47 +106,55 @@ function Work() {
               autoFocus
               margin="dense"
               id="name"
-              label="Project title"
+              label="Last Name"
               type="text"
-              name="title"
-              value={data.title}
+              name="lastName"
+              value={data.lastName}
               onChange={handleChange}
               fullWidth
             />
-
-            <TextField
+             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Github link"
-              name="github"
-              value={data.github}
-              onChange={handleChange}
+              label="Job Title"
               type="text"
+              name="jobTItle"
+              value={data.jobTItle}
+              onChange={handleChange}
               fullWidth
             />
-
-            <TextField
+             <TextField
               autoFocus
               margin="dense"
               id="name"
-              label="Article link(Optional)"
-              name="article"
-              value={data.article}
-              onChange={handleChange}
+              label="Describe yourself"
               type="text"
+              name="description"
+              value={data.description}
+              onChange={handleChange}
               fullWidth
             />
-
+              <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Skills set"
+              type="text"
+              name="skills"
+              value={data.skills}
+              onChange={handleChange}
+              fullWidth
+            />
             <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="File upload"
-            name="file"
-            value={data.file}
-            onChange={handleChange}
+            label="Image Upload"
             type="file"
+            name="imageUrl"
+            value={data.imageUrl}
+            onChange={handleChange}
             fullWidth
           />
 

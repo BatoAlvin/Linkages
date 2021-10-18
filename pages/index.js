@@ -50,36 +50,27 @@ export default Classwork;
 
 
 
-export const getStaticProps = async () => {
-  let data = []
-  try{
-      const projects = await getDocs(collection(db, "jobs"));   
-   
-      projects.forEach((doc) => {
-        data.push(
-          {
-             id: doc.id,
-             coName: doc.data().coName,
-             qualifications: doc.data().qualifications,
-             jobTitle: doc.data().jobTitle,
-             jobCategory: doc.data().jobCategory,
-             jobDescription: doc.data().jobDescription,
-             deadline: doc.data().deadline,
-             location: doc.data().location,
-        })
+export const getServerSideProps  = async () => {
+  let data = [];
+  try {
+    const projects = await getDocs(collection(db, "jobs"));
 
-        }); 
-         
-  }catch(err){
-      console.log(err)
+    projects.forEach((doc) => {
+      return data.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+    console.log(data);
+  } catch (err) {
+   // console.log(err);
   }
-  
-  return{
-      props: {
-          data
-      }  
-      
-  }
-}
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
 
 
