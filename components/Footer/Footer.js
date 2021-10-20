@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Footer.module.css";
 import Image from "next/image";
-import logo from "../images/outbox.png";
+import logo from "../../public/outboxedu logo.png";
 import Link from "next/link";
 import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi";
 function Footer() {
@@ -9,42 +9,39 @@ function Footer() {
     <div className={styles.footer}>
       <h2>Join the community</h2>
       <div className={styles.flex1}>
-        <button className={styles.button1}>RECEIVE NEWS</button>
-        <button className={styles.button2}>JOIN HERE</button>
+        <button className={styles.button1}>Receive News</button>
+        <button className={styles.button2}>Join Here</button>
       </div>
       <div className={styles.flex2}>
-        <div>
+        <div > 
           <h4>NAVIGATION</h4>
           <li>
-            <Link href="#home">Home</Link>
+            <Link href="#home">Enrollment</Link>
           </li>
           <li>
-            <Link href="#about">About us</Link>
+            <Link href="#about">Linkages</Link>
           </li>
 
           <li>
-            <Link href="#home">Events</Link>
+            <Link href="#home">What we do</Link>
           </li>
           <li>
-            <Link href="#contact">contact us</Link>
+            <Link href="#contact">Events</Link>
+          </li>
+          <li>
+            <Link href="#contact">Learning</Link>
           </li>
         </div>
         <div>
           <h4>WHAT WE DO</h4>
-          <li>
-            <Link href="#home">Teach</Link>
-          </li>
-          <li>
-            <Link href="#about">Mentor</Link>
-          </li>
-          <li>
-            <Link href="#about">Develop</Link>
-          </li>
         </div>
         <div>
           <h4>LEGAL</h4>
           <li>
             <Link href="#home">General info</Link>
+          </li>
+          <li>
+            <Link href="#about">Terms of Use</Link>
           </li>
           <li>
             <Link href="#about">Privacy policy</Link>
@@ -53,10 +50,16 @@ function Footer() {
         <div>
           <h4>TALK TO US</h4>
           <li>
-            <Link href="#home">General info</Link>
+            <Link href="#home">support@outbox.co.ug</Link>
           </li>
           <li>
-            <Link href="#about">Privacy policy</Link>
+            <Link href="#about">Facebook</Link>
+          </li>
+          <li>
+            <Link href="#about">LinkedIn</Link>
+          </li>
+          <li>
+            <Link href="#about">Twitter</Link>
           </li>
         </div>
       </div>
@@ -70,12 +73,12 @@ function Footer() {
               src={logo}
               alt="logo"
               width={100}
-              height={40}
+              height={60}
             />
           </a>
         </Link>
         <div>
-          <p style={{ fontSize: "14px" }}>
+          <p style={{ fontSize: "1rem" }}>
             © 2021 OutBox EDU. All Rights Reserved.{" "}
           </p>
         </div>
