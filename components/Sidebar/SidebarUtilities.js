@@ -12,7 +12,7 @@ export const lms = [
     },
     {
         list: "Create Profile",
-        link:"/createprofile",
+        link:"/createprofile", 
         icon: <WorkIcon style = {{fill: '#41AD48'}}/>
     },
     {

@@ -7,9 +7,11 @@ body {
   font-family:'Montserrat', sans-serif;
   font-weight: 600;
   box-sizing: border-box;
+  padding: 0;
 }
+
 a {
-  color: black;
+  color: #0072A0;
   text-decoration: none;
 }
 

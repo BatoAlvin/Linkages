@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 .footer {
-  padding: 30px 0 24px 0;
+  padding: 5px 0 5px 0;
   background-color: #096691;
   color: #ffffff;
-  min-width: 800px;
+  width: 100%;
 }
 
 
@@ -15,62 +15,87 @@
 }
 
 .footer h2 {
+  padding: 0.9rem;
+  margin: 0;
   text-align: center;
   color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 .footer h4{
   color: #ffffff;
+  margin: .5rem;
 }
 .flex1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 20px;
+  /* padding: 10px; */
 }
 .flex1 > button {
   margin: 10px;
 }
 .button1 {
-  padding: 10px 12px;
+  padding: 8px 8px;
   background: transparent;
-  border-radius: 5px;
-  width: 177px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 1rem;
   border: 1px solid #ffffff;
   cursor: pointer;
   color: #ffffff;
 }
 .button2 {
-  padding: 6px 10px;
+  padding: 8px 10px;
   border-radius: 5px;
   border: none;
-  width: 177px;
-  background: #0081fe;
+  font-size: 1rem;
+  font-weight: 400;
+  background: #018ac8;
   cursor: pointer;
   color: #ffffff;
 }
 .button1:hover,
 .button2:hover {
-  background-color: rgb(189, 188, 188);
+  background-color: #F9FAFB;
+  color: #000;
+  transition: 200ms ease-out;
 }
 .flex2 {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-
   flex-wrap: wrap;
   
 }
+.flex2 div{
+  margin-top: 1.7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flex2 h4{
+  font-size: 1.3rem ;
+  font-weight: 600;
+}
 .flex2 li {
   list-style-type: none;
+  padding: .4rem;
+  margin: 0;
 }
 .flex2 li a:hover{
   text-decoration: underline;
+  color: #F9FAFB;
   
 }
 .flex2 li a {
-  font-size: 15px;
-  color: #fff;
+  font-size: 16px;
+  color: hsla(0,0%,100%,.7);
+  text-align: center;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
 }
   
 .copysection {
@@ -79,10 +104,12 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  padding-top: 60px;
-  padding-bottom: 20px;
+  padding-top: 20px;
 }
-
+.copysection p {
+  font-weight: 400;
+  color: hsla(0,0%,100%,.7);
+}
 .social {
   display: flex;
   flex-direction: row;
@@ -106,16 +133,47 @@
 
 
 @media screen and (max-width: 480px) {
+  .footer{
+    width: 99vh;
+    padding: 0;
+  }
+  .footer h2 {
+    padding: 1.5rem;
+    margin: 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 700;
+  }
+  .button1 {
+    padding: 20px 18px;
+    font-size: 1.9rem;
+  }
+  .button2 {
+    font-size: 2rem;
+    padding: 20px 18px;
+    font-size: 1.9rem;
+  }
+  .flex1 > button {
+    margin: 20px;
+  }
   .flex1 {
-    flex-direction: column;
     align-items: center;
     padding: 10px;
   }
   .flex2 {
-    flex-direction: column;
     align-items: center;
     width: 100%;
+    flex-direction: column;
   }
+  .flex2 h4{
+    font-size: 2.3rem ;
+  }
+  .flex2 li a {
+    font-size: 2rem;
+    padding: .9rem;
+  }
+ 
   .copysection {
     flex-direction: column;
   }

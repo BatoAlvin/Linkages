@@ -3,7 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center
+  align-items: center;
+  
 }
 .card {
   color: #3f556b;
@@ -44,7 +45,8 @@
 .paragraph {
   font-size: 13px;
 }
-
-/* .container {
-  display: flex;
-} */
+@media screen and (max-width: 480px) {
+  .major{
+  width: 70vh;
+  }
+}

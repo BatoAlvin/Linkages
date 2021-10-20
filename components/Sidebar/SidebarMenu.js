@@ -10,7 +10,7 @@ function SidebarMenu({ menu }) {
   return (
     <div className={styles.left}>
       <div className = {styles.Logo}>
-      <Image src = {logo} width = {100} height = {90} alt = "edu logo"/>
+      {/* <Image src = {logo} width = {100} height = {90} alt = "edu logo"/> */}
       </div>
       <SidebarItems list={lms} />
     </div>

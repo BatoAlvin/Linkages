@@ -24,7 +24,7 @@ function SidebarItems(props) {
       <div className = {styles.eduYoutubeChannel}>
         <h4>Subscribe to our Youtube Channel</h4>
         <Link href='https://www.youtube.com/c/OutboxCoUg/' passHref={true}>
-        <YouTubeIcon style= {{fill: '#A82E2E',fontSize: '40px'}}/>
+        <YouTubeIcon style= {{fill: '#A82E2E',fontSize: '40px'}} />
         </Link>
       </div>
     </div>
