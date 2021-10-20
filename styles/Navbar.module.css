@@ -1,29 +1,28 @@
 .navbar {
-  height: 68px;
+  /* height: 68px; */
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.65rem 3rem;
-  position: sticky;
-  background-color: #fff; 
-  box-shadow: 0px 0px 8px 0px #000000;
-  font-size: 20px;  
+  padding: 1rem 9.2rem;
+  background-color: #f7f3f2;
+  /* box-shadow: 0px 0px 8px 0px #000000; */
+  font-size: 16px;
   width: 100%;
   min-width: 800px;
   overflow: hidden;
   z-index: 99;
-} 
+}
 .links {
   display: flex;
-  color: #0171A3;
+  color: #0171a3;
+  padding-top: 1rem;
 }
 .navlink {
   list-style: none;
   margin: 0 1.5rem;
-  font-weight: 400;
-  font-size: 17px;
-  color: #0171A3 ;
+  font-size: 16px;
+  color: #0171a3;
 }
 .navlink:hover,
 .active {
@@ -41,11 +40,11 @@
   display: inline;
 }
 .menu {
-  line-height: 20px; 
+  line-height: 20px;
   height: fit-content;
-  background: #096691;  
-  color: #fff; 
-  padding: 10px; 
+  background: #096691;
+  color: #fff;
+  padding: 10px;
   right: 0;
   position: absolute;
   width: max-content;
@@ -61,7 +60,6 @@
 @media screen and (max-width: 786px) {
   .navlink {
     margin: 0 0.5rem;
-    font-weight: 400;
     font-size: 20px;
   }
   .name {
@@ -69,13 +67,12 @@
   }
   .user {
     margin-left: 15px;
-  } 
-  
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .menu{
-   min-width: 800px; 
-   position: relative;
+  .menu {
+    min-width: 800px;
+    position: relative;
   }
 }

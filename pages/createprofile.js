@@ -5,18 +5,30 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/myClass.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import { db } from "../firebase/firebase";
-import {message,Alert} from 'antd';
-import 'antd/dist/antd.css';
+import { message, Alert } from "antd";
+import "antd/dist/antd.css";
 
 import { collection, addDoc, getDocs, getFirestore } from "firebase/firestore";
 
+const CustomButton = withStyles({
+  root: {
+    backgroundColor: "#018ac8",
+    border: 0,
+    borderRadius: 3,
+    color: "white",
+    padding: "7px 15px",
+    fontWeight: "normal",
+  },
+})((props) => <Button {...props} />);
+
 function Work() {
   const db = getFirestore();
-  const [showAlert,setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const initialRef = React.useRef();
   const finalRef = React.useRef();
@@ -24,29 +36,28 @@ function Work() {
   const [data, setData] = useState({
     fisrtName: "",
     lastName: "",
-    imageUrl:"",
-    jobTItle:"",
-    description:"",
-    skills:"",
+    imageUrl: "",
+    jobTItle: "",
+    description: "",
+    skills: "",
   });
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      const docRef = await addDoc(collection(db, "profileApplications"), data)
-        .then((docRef) => {
-          console.log("Profile added", docRef.id);
-          setInterval(()=>{
-            setShowAlert(true)
-          },);
-        })
-        .catch((error) => {
-          console.error("Error occurred while adding profile", error);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const docRef = await addDoc(collection(db, "profileApplications"), data)
+      .then((docRef) => {
+        console.log("Profile added", docRef.id);
+        setInterval(() => {
+          setShowAlert(true);
         });
-    };
-  
+      })
+      .catch((error) => {
+        console.error("Error occurred while adding profile", error);
+      });
+  };
 
   const [open, setOpen] = React.useState(false);
 
@@ -65,20 +76,19 @@ function Work() {
         <div>
           <h1> EDU LEARNING COMMUNITY</h1>
           <h3>Welcome!!! </h3>
-          <h3>To create your profile simply click the button below, 🙂 </h3> 
+          <h3>To create your profile simply click the button below🙂 </h3>
           <div>
-         {showAlert && 
-           <Alert
-           type='success'
-           message='Successful'
-           description='Profile has been sent'
-           style={{backgroundColor:'#5cb85c'}}
-           closable
-           />}
-           </div>
-          <Button variant="contained" color="primary" onClick={handleClickOpen}>
-            Add Profile
-          </Button>
+            {showAlert && (
+              <Alert
+                type="success"
+                message="Successful"
+                description="Profile has been sent"
+                style={{ backgroundColor: "#5cb85c" }}
+                closable
+              />
+            )}
+          </div>
+          <CustomButton onClick={handleClickOpen}>Add Profile</CustomButton>
         </div>
       </div>
 
@@ -90,7 +100,7 @@ function Work() {
         <DialogTitle id="form-dialog-title">Add Profile</DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-          <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -113,7 +123,7 @@ function Work() {
               onChange={handleChange}
               fullWidth
             />
-             <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -124,7 +134,7 @@ function Work() {
               onChange={handleChange}
               fullWidth
             />
-             <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -135,7 +145,7 @@ function Work() {
               onChange={handleChange}
               fullWidth
             />
-              <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -147,16 +157,16 @@ function Work() {
               fullWidth
             />
             <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Image Upload"
-            type="file"
-            name="imageUrl"
-            value={data.imageUrl}
-            onChange={handleChange}
-            fullWidth
-          />
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Image Upload"
+              type="file"
+              name="imageUrl"
+              value={data.imageUrl}
+              onChange={handleChange}
+              fullWidth
+            />
 
             <Button onClick={handleClose} color="secondary">
               Cancel
