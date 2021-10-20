@@ -23,6 +23,7 @@ const CustomButton = withStyles({
     color: "white",
     padding: "7px 15px",
     fontWeight: "normal",
+    marginTop: "1rem",
   },
 })((props) => <Button {...props} />);
 
