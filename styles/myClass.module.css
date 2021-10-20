@@ -187,6 +187,11 @@
     .projectHeaderSec2{
         width: 100%;
     }
+    .messagesContainer{
+        width: 70vh;
+        height: 100vh;
+    }
+
 }
 
 

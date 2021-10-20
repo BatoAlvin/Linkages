@@ -54,10 +54,8 @@
 }
 .flex2 {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-
   flex-wrap: wrap;
   
 }
@@ -107,14 +105,13 @@
 
 @media screen and (max-width: 480px) {
   .flex1 {
-    flex-direction: column;
     align-items: center;
     padding: 10px;
   }
   .flex2 {
-    flex-direction: column;
     align-items: center;
     width: 100%;
+    justify-content: space-around;
   }
   .copysection {
     flex-direction: column;

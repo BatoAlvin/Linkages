@@ -48,3 +48,8 @@
     transition: 1s ease-in;
    transform: scale(1.03); 
  }
+ @media screen and (max-width: 480px) {
+    .right{
+        width: 70vh;
+    }
+  }

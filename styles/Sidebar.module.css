@@ -1,3 +1,4 @@
+
 .list{
   display: flex;
   justify-content: space-around;
@@ -6,23 +7,25 @@
   overflow: hidden;
 }
 
-    .list li{
+    .list li { 
         list-style: none;
-       color: #40A9FF !important;
         line-height: 5;
     }
-    .list li:hover {
-      font-weight: 600;
+    .list li a{
+      color: #0072A0 ;
+      display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
     }
+  
     .activeLink {
       
       background-color: red;
      
-    }
+    } 
    
-    .list a:active {
-      
-      background-color: white;
+    .list li a:active {
+      /* background-color: white; */
       font-weight: 500;
       color: #a82e2e;
       font-weight: 600;
@@ -36,11 +39,11 @@
         flex-direction: column;
     }
     .eduYoutubeChannel{
-      background-color:#EDDE46 ;
+      background-color:#F9C503 ;
       text-align: center;
       margin: 1rem 1rem;
       border-radius: 1rem;
       cursor: pointer;
     }
-   
+
   
