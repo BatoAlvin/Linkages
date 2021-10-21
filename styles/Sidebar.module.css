@@ -1,5 +1,4 @@
-
-.list{
+.list {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -7,43 +6,39 @@
   overflow: hidden;
 }
 
-    .list li { 
-        list-style: none;
-        line-height: 5;
-    }
-    .list li a{
-      color: #0072A0 ;
-      display: flex;
-        align-items: center;
-        /* justify-content: space-between; */
-    }
-  
-    .activeLink {
-      
-      background-color: red;
-     
-    } 
-   
-    .list li a:active {
-      /* background-color: white; */
-      font-weight: 500;
-      color: #a82e2e;
-      font-weight: 600;
-    }
+.list li {
+  list-style: none;
+  line-height: 5;
+}
+.list li a {
+  color: #0072a0;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
 
-    .left{
+.activeLink {
+  background-color: red;
+}
+
+.list li a:active {
+  /* background-color: white; */
+  font-weight: 500;
+  color: #a82e2e;
+  font-weight: 600;
+}
+
+/* .left{
         background-color: #D9E0E8;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-    }
-    .eduYoutubeChannel{
-      background-color:#F9C503 ;
-      text-align: center;
-      margin: 1rem 1rem;
-      border-radius: 1rem;
-      cursor: pointer;
-    }
-
-  
+    } */
+.eduYoutubeChannel {
+  background-color: #f9c503;
+  text-align: center;
+  margin: 1rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
