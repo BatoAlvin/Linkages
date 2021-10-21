@@ -3,21 +3,18 @@ body {
   padding: 0;
   margin: 0;
 }
-*{
-  font-family:'Montserrat', sans-serif;
-  font-weight: 600;
+* {
+  font-family: "Montserrat", sans-serif;
+  /* font-weight: 600; */
   box-sizing: border-box;
   padding: 0;
 }
 
 a {
-  color: #0072A0;
+  color: #0072a0;
   text-decoration: none;
 }
 
-
-Link:hover{
-  cursor:pointer;
+Link:hover {
+  cursor: pointer;
 }
-
-

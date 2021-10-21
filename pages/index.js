@@ -51,7 +51,7 @@ const Classwork = ({ data }) => {
                     <p className={styles.jobTitle}>{info.jobTitle}</p>
                     <div className={styles.companyDetails}>
                       <p className={styles.company}>{info.coName}</p>
-                      <p className={styles.location}>location</p>
+                      <p className={styles.location}>{info.location}</p>
                     </div>
                     <div>
                       <p className={styles.paragraph}>{info.jobDescription}</p>
