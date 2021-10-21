@@ -7,14 +7,42 @@ import { collection, getDocs } from "firebase/firestore";
 
 //to view the projects added by admin
 const Classwork = ({ data }) => {
+  const [datas, setData] = useState(data);
+  const getData = async () => {
+    const dataArr = [];
+    const projects = await getDocs(collection(db, "jobs"));
+    projects.forEach((doc) => {
+      return dataArr.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+    return dataArr;
+  };
+  const handleChange = async (e) => {
+    const { value } = e.target;
+    const newData = await getData();
+    console.log(newData);
+    const filtered = [...newData].filter((job) =>
+      job.category.toLowerCase().includes(value)
+    );
+    console.log(filtered);
+    value === "" ? setData(data) : setData(filtered);
+  };
   return (
     <>
       <Head>
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
       </Head>
+      <select onChange={handleChange}>
+        <option value="" label="All"></option>
+        <option value="frontend" label="Frontend"></option>
+        <option value="backend" label="Backend"></option>
+        <option value="fullstack" label="Fullstack"></option>
+      </select>
       <div className={styles.major}>
-        {data.map((info) => (
+        {datas.map((info) => (
           <div key={info.id}>
             <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
               <div className={styles.container}>
