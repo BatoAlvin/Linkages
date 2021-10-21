@@ -3,7 +3,13 @@ import styles from "../../styles/Footer.module.css";
 import Image from "next/image";
 import logo from "../../public/outboxedu logo.png";
 import Link from "next/link";
-import { FiTwitter, FiFacebook, FiLinkedin } from "react-icons/fi";
+import {
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedinIn,
+} from "react-icons/fa";
 function Footer() {
   return (
     <div className={styles.footer}>
@@ -13,7 +19,7 @@ function Footer() {
         <button className={styles.button2}>Join Here</button>
       </div>
       <div className={styles.flex2}>
-        <div > 
+        <div>
           <h4>NAVIGATION</h4>
           <li>
             <Link href="#home">Enrollment</Link>
@@ -72,8 +78,8 @@ function Footer() {
               }}
               src={logo}
               alt="logo"
-              width={100}
-              height={60}
+              width={80}
+              height={80}
             />
           </a>
         </Link>
@@ -84,13 +90,16 @@ function Footer() {
         </div>
         <div className={styles.social}>
           <a href="https://facebook.com/OutboxEdu">
-            <FiFacebook />
+            <FaFacebookF />
           </a>
           <a href="https://linkedin.com/company/outboxuganda/">
-            <FiLinkedin />
+            <FaLinkedinIn />
           </a>
           <a href="https://twitter.com/EduOutbox">
-            <FiTwitter />
+            <FaTwitter />
+          </a>
+          <a href="#">
+            <FaGithub />
           </a>
         </div>
       </div>

@@ -1,10 +1,9 @@
-.major{
+.major {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  
 }
 .card {
   color: #3f556b;
@@ -14,7 +13,7 @@
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
   padding: 4px 10px 5px 10px;
   border-radius: 3px;
-  margin: .8rem;
+  margin: 0.8rem;
   cursor: pointer;
 }
 .card:hover {
@@ -46,7 +45,9 @@
   font-size: 13px;
 }
 @media screen and (max-width: 480px) {
-  .major{
-  width: 70vh;
+  .major {
+    width: 70vh;
+    height: 500px;
+    overflow: auto;
   }
 }
