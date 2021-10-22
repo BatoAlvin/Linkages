@@ -168,3 +168,9 @@
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .footer {
+    width: 120vh;
+  }
+}

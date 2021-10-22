@@ -1,12 +1,9 @@
-.messagesContainer {
-  margin-top: 6.5rem;
-  height: 50vh;
-}
 .myClassSection {
   background-color: #f3f6f9;
-  width: 100%;
+  /* width: 135vh; */
   height: 100%;
   border-radius: 30px 20px 20px 20px;
+  /* margin-left: 6.8rem; */
 }
 .myClassBorder {
   margin: 0 auto;
@@ -76,6 +73,12 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .messagesContainer {
+    width: 100%;
   }
 }
 
@@ -149,6 +152,7 @@
   width: 30%;
   color: #a82e2e;
   font-weight: 800;
+  margin-left: 5px;
 }
 
 .projectHeaderSec2 button {
@@ -173,22 +177,6 @@
   background: white;
   color: black;
   cursor: pointer;
-}
-
-@media screen and (max-width: 600px) {
-  .projectHeader2 {
-    all: unset;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  .projectHeaderSec2 {
-    width: 100%;
-  }
-  .messagesContainer {
-    width: 70vh;
-    height: 100vh;
-  }
 }
 
 /* Add project*/
@@ -217,15 +205,6 @@
   align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-  .DateInput {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
 .messagesContainer {
   display: flex;
   flex-direction: column;
@@ -246,4 +225,74 @@
   cursor: pointer;
   background: black;
   border-spacing: 2rem;
+}
+
+.messagesContainer2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 2rem 2rem 2rem;
+  text-align: center;
+  height: 50vh;
+}
+.messagesContainer2 h1 {
+  color: #096691;
+}
+.messagesContainer2 h3 {
+  color: grey;
+}
+
+.messagesImage2 {
+  border-radius: 50%;
+  cursor: pointer;
+  background: black;
+  border-spacing: 2rem;
+}
+
+@media screen and (max-width: 780px) {
+  .messagesContainer2 {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .projectHeader2 {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .projectHeaderSec2 {
+    width: 100%;
+  }
+  .messagesContainer {
+    width: 70vh;
+    height: 100vh;
+  }
+  .DateInput {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .myClassSection {
+    margin-left: 70px;
+    width: 100%;
+  }
+  .messagesContainer {
+    height: 30vh;
+    margin-left: 90px;
+  }
+  .myClassBorder {
+    font-size: 2rem;
+  }
+  .messagesContainer2 {
+    font-size: 2rem;
+    height: 100vh;
+    margin-left: 6.7rem;
+  }
 }

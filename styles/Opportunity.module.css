@@ -1,3 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+.selectFilter {
+  padding: 8px 25px;
+  width: 250px;
+  border-radius: 3px;
+  margin-bottom: 18px;
+  color: #2980b9;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.selectFilter option {
+  font-size: 16px;
+  padding: 15px 0;
+}
 .major {
   padding: 1rem;
   display: flex;
@@ -44,10 +64,46 @@
 .paragraph {
   font-size: 13px;
 }
+
 @media screen and (max-width: 480px) {
-  .major {
+  .main {
     width: 70vh;
-    height: 500px;
+    margin-left: 6.7rem;
+  }
+  .major {
+    width: 100%;
+    height: 1400px;
     overflow: auto;
+  }
+  .card {
+    width: 690px;
+    height: 690px;
+    margin-bottom: 15px;
+    padding: 34px;
+  }
+
+  .jobTitle {
+    font-size: 2.5rem;
+  }
+  .companyDetails {
+    font-size: 2.5rem;
+  }
+  .deadline {
+    font-size: 2.5rem;
+  }
+  .paragraph {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .main {
+    width: 90vh;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .main {
+    width: 90vh;
   }
 }

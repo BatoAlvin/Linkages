@@ -73,7 +73,7 @@ function Work() {
 
   return (
     <div>
-      <div className={styles.messagesContainer}>
+      <div className={styles.messagesContainer2}>
         <div>
           <h1> EDU LEARNING COMMUNITY</h1>
           <h3>Welcome!!! </h3>
@@ -89,7 +89,9 @@ function Work() {
               />
             )}
           </div>
-          <CustomButton onClick={handleClickOpen}>Add Profile</CustomButton>
+          <CustomButton variant="contained" onClick={handleClickOpen}>
+            Add Profile
+          </CustomButton>
         </div>
       </div>
 

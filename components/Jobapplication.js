@@ -6,16 +6,29 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import styles from "../styles/myClass.module.css";
+import { withStyles } from "@material-ui/core/styles";
 import Link from "next/link";
 //import { db } from "../firebase/firebase";
-import {db} from "../firebase/firebase";
+import { db } from "../firebase/firebase";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
-import {message,Alert} from 'antd';
-import 'antd/dist/antd.css';
+import { message, Alert } from "antd";
+import "antd/dist/antd.css";
+
+const CustomButton = withStyles({
+  root: {
+    backgroundColor: "#0072a1",
+    border: 0,
+    borderRadius: 3,
+    color: "white",
+    padding: "7px 15px",
+    fontWeight: "normal",
+    marginTop: "1rem",
+  },
+})((props) => <Button {...props} />);
 
 function Jobapplication() {
   const db = getFirestore();
-  const [showAlert,setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const initialRef = React.useRef();
   const finalRef = React.useRef();
@@ -23,25 +36,21 @@ function Jobapplication() {
   const [data, setData] = useState({
     name: "",
     email: "",
-    github:"",
-    fileUpload:"",
-    
+    github: "",
+    fileUpload: "",
   });
 
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
-
-   
-   
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const docRef = await addDoc(collection(db, "job_application"), data)
       .then((docRef) => {
         console.log("Application added", docRef.id);
-        setInterval(()=>{
-          setShowAlert(true)
-        },);
+        setInterval(() => {
+          setShowAlert(true);
+        });
       })
       .catch((error) => {
         console.error("Error occurred while adding profile", error);
@@ -63,19 +72,23 @@ function Jobapplication() {
     <div>
       <div className={styles.messagesContainer}>
         <div>
-         {showAlert && 
-           <Alert
-           type='success'
-           message='Successful'
-           description='Application has been sent'
-           style={{backgroundColor:'#5cb85c'}}
-           closable
-           />}
-           </div>
-          <Button variant="contained" color="primary" onClick={handleClickOpen}>
-            Apply
-          </Button>
-      
+          {showAlert && (
+            <Alert
+              type="success"
+              message="Successful"
+              description="Application has been sent"
+              style={{ backgroundColor: "#5cb85c" }}
+              closable
+            />
+          )}
+        </div>
+        <CustomButton
+          variant="contained"
+          color="primary"
+          onClick={handleClickOpen}
+        >
+          Apply
+        </CustomButton>
       </div>
 
       <Dialog
@@ -109,7 +122,7 @@ function Jobapplication() {
               onChange={handleChange}
               fullWidth
             />
-             <TextField
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -132,8 +145,6 @@ function Jobapplication() {
               fullWidth
             />
 
-          
-
             <Button onClick={handleClose} color="secondary">
               Cancel
             </Button>
@@ -144,7 +155,6 @@ function Jobapplication() {
         </DialogContent>
         <DialogActions></DialogActions>
       </Dialog>
-      
     </div>
   );
 }
