@@ -26,7 +26,7 @@
     width:50%;
     height: 100px;
     margin: 11% 25% ;
-    background-color: #0072A1;
+    background-color: #acc2cc;
     border-radius: 50%;
     
   }
@@ -52,4 +52,15 @@
     .right{
         width: 70vh;
     }
+  }
+
+  .url{
+      color: #0072A1;
+  }
+
+  .FormsText {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 30px;
+    max-width: 400px;
   }

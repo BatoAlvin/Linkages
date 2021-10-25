@@ -59,7 +59,7 @@ function Profileapplications() {
   };
 
   return (
-    <div>
+   <div>
       <div className={styles.messagesContainer}>
         <div>
          {showAlert && 
@@ -70,7 +70,7 @@ function Profileapplications() {
            style={{backgroundColor:'#5cb85c'}}
            closable
            />}
-           </div>
+           </div> 
           <Button variant="contained" color="primary" onClick={handleClickOpen}>
             Add Profile
           </Button>
