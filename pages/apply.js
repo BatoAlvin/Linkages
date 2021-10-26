@@ -28,9 +28,7 @@ function Jobapplication() {
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Github" />
         <input type="file" placeholder="Your CV" />
-        <CustomButton variant="contained" color="primary">
-          Apply
-        </CustomButton>
+        <CustomButton variant="contained">Apply</CustomButton>
       </form>
     </div>
   );

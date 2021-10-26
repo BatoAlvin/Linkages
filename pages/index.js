@@ -8,6 +8,7 @@ import { collection, getDocs } from "firebase/firestore";
 //to view the projects added by admin
 const Classwork = ({ data }) => {
   const [datas, setData] = useState(data);
+  const [search, setSearch] = useState("");
   const getData = async () => {
     const dataArr = [];
     const projects = await getDocs(collection(db, "jobs"));
@@ -19,6 +20,7 @@ const Classwork = ({ data }) => {
     });
     return dataArr;
   };
+
   const handleChange = async (e) => {
     const { value } = e.target;
     const newData = await getData();
@@ -35,7 +37,15 @@ const Classwork = ({ data }) => {
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
       </Head>
+
       <div className={styles.main}>
+        <input
+          placeholder="Company name"
+          type="text"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
         <select className={styles.selectFilter} onChange={handleChange}>
           <option value="" label="All"></option>
           <option value="frontend" label="Frontend"></option>
@@ -43,32 +53,44 @@ const Classwork = ({ data }) => {
           <option value="fullstack" label="Fullstack"></option>
         </select>
         <div className={styles.major}>
-          {datas.map((info) => (
-            <div key={info.id}>
-              <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
-                <div className={styles.container}>
-                  <div className={styles.flexitem}>
-                    <div className={styles.card}>
-                      <p className={styles.jobTitle}>{info.jobTitle}</p>
-                      <div className={styles.companyDetails}>
-                        <p className={styles.company}>{info.coName}</p>
-                        <p className={styles.location}>{info.location}</p>
-                      </div>
-                      <div>
-                        <p className={styles.paragraph}>
-                          {info.jobDescription}
-                        </p>
-                      </div>
+          {datas
+            .filter((info) => {
+              if (search === "") {
+                return info;
+              } else if (
+                info.coName
+                  .toLowerCase()
+                  .includes(search.toString().toLocaleLowerCase())
+              ) {
+                return info;
+              }
+            })
+            .map((info) => (
+              <div key={info.id}>
+                <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
+                  <div className={styles.container}>
+                    <div className={styles.flexitem}>
+                      <div className={styles.card}>
+                        <p className={styles.jobTitle}>{info.jobTitle}</p>
+                        <div className={styles.companyDetails}>
+                          <p className={styles.company}>{info.coName}</p>
+                          <p className={styles.location}>{info.location}</p>
+                        </div>
+                        <div>
+                          <p className={styles.paragraph}>
+                            {info.jobDescription}
+                          </p>
+                        </div>
 
-                      <div className={styles.deadline}>
-                        <p>Deadline: {info.deadline}</p>
+                        <div className={styles.deadline}>
+                          <p>Deadline: {info.deadline}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            </div>
-          ))}
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </>
