@@ -58,6 +58,11 @@ export default function Navbar() {
               All profiles
             </Link>
           </li>
+          <li className={`${styles.navlink}`}>
+            <Link href="/signup" passHref={true}>
+              Sign Up
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
