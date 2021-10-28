@@ -19,9 +19,10 @@ function Profiles({ data}) {
             <div key={info.id}>
               <div className={styles.details}>
                 <a target="_blank" rel="noopener noreferrer">
-                  {/* <Image src={projectImage} alt={projectName} width={300}  height={200} className={styles.img}/> */}
-                  {/* <img src={projectImage}  className={styles.img} alt="img" width="250" height="200"/> */}
-                  <div className={styles.pic}></div>
+               
+                  <div className={styles.pic}>
+                  <img src={info.imageUrl}  className={styles.img}  width="250" height="200" unoptimized/>
+                  </div>
                   
                   <p className={styles.title}>
                  {info.fisrtName} <span>{info.lastName}</span>

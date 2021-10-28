@@ -137,7 +137,7 @@ function Jobapplication() {
               autoFocus
               margin="dense"
               id="name"
-              label="File Upload"
+              label="Cv Upload"
               type="file"
               name="FileUpload"
               value={data.fileUpload}

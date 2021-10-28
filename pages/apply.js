@@ -24,7 +24,7 @@ function Jobapplication() {
   return (
     <div className={styles.main}>
       <form className={styles.form}>
-        <input type="text" placeholder="Name" />
+        <input type="text" placeholder="Name"/>
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Github" />
         <input type="file" placeholder="Your CV" />
