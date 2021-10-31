@@ -97,8 +97,8 @@ const Classwork = ({ data }) => {
               }
             })
             .map((info) => (
-              <Grid item xs={12} sm={6} md={4} key={info.id}>
-                <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
+              <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
+                <Grid item xs={12} sm={6} md={4} key={info.id}>
                   <OppCard
                     job={info.jobTitle}
                     company={info.coName}
@@ -106,8 +106,8 @@ const Classwork = ({ data }) => {
                     deadline={info.deadline}
                     paragraph={info.jobDescription}
                   />
-                </Link>
-              </Grid>
+                </Grid>
+              </Link>
             ))}
         </Grid>
       </Grid>
