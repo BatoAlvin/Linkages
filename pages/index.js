@@ -17,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 //to view the projects added by admin
-const workoverview = ({ data }) => {
+const Classwork = ({ data }) => {
   const [datas, setData] = useState(data);
   const [search, setSearch] = useState("");
   const getData = async () => {
@@ -115,7 +115,7 @@ const workoverview = ({ data }) => {
   );
 };
 
-export default workoverview;
+export default Classwork;
 
 export const getServerSideProps = async () => {
   let data = [];
