@@ -38,9 +38,7 @@ function Footer() {
             <Link href="#contact">Learning</Link>
           </li>
         </div>
-        <div>
-          <h4>WHAT WE DO</h4>
-        </div>
+
         <div>
           <h4>LEGAL</h4>
           <li>
