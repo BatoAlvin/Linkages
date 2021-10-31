@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Footer.module.css";
 import Image from "next/image";
-import logo from "../../public/outboxedu logo.png";
+import logo from "../../public/outbox.png";
 import Link from "next/link";
 import {
   FaGithub,
@@ -76,8 +76,8 @@ function Footer() {
               }}
               src={logo}
               alt="logo"
-              width={80}
-              height={80}
+              width={100}
+              height={45}
             />
           </a>
         </Link>
