@@ -64,7 +64,7 @@
 
 @media screen and (max-width: 786px) {
   .navbar {
-    width: 800px;
+    width: 120vh;
   }
   .navlink {
     margin: 0 0.5rem;
@@ -96,9 +96,9 @@
     position: absolute;
     left: 0;
     top: 96px;
-    height: 250px;
-    max-height: 250px;
-    width: 900px;
+    min-height: 250px;
+    max-height: 280px;
+    width: 922px;
     /* width: 100%; */
     background-color: #f7f3f2;
     display: flex;
@@ -112,8 +112,27 @@
   }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 415px) {
   .navbar {
-    width: 120vh;
+    width: 125.5vh;
+  }
+
+  .links.links.hidden {
+    width: 125vh;
+    min-height: 280px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .navbar {
+    width: 137vh;
+  }
+
+  .links.links.hidden {
+    width: 137vh;
+    min-height: 316px;
   }
 }

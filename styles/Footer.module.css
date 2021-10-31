@@ -123,9 +123,16 @@
   transform: scale(1.2);
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .footer {
+    width: 120vh;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .footer {
-    width: 99vh;
+    width: 125vh;
     padding: 0;
   }
   .footer h2 {
@@ -168,9 +175,20 @@
     flex-direction: column;
   }
 }
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 415px) {
   .footer {
-    width: 120vh;
+    width: 125.5vh;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .footer {
+    width: 138vh;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .footer {
+    width: 920px;
   }
 }

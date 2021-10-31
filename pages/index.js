@@ -1,12 +1,23 @@
+import OppCard from "../components/JobOpportunities/Card";
 import styles from "../styles/Opportunity.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 import { db } from "../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { styled } from "@material-ui/core/styles";
+
+import { Grid, Paper } from "@material-ui/core";
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 //to view the projects added by admin
-const Classwork = ({ data }) => {
+const workoverview = ({ data }) => {
   const [datas, setData] = useState(data);
   const [search, setSearch] = useState("");
   const getData = async () => {
@@ -38,21 +49,41 @@ const Classwork = ({ data }) => {
         <meta name="description" content="Become a software developer" />
       </Head>
 
-      <div className={styles.main}>
-        <input
-          placeholder="Company name"
-          type="text"
-          onChange={(e) => {
-            setSearch(e.target.value);
+      <Grid container spacing={0}>
+        <Grid
+          container
+          spacing={1}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-        />
-        <select className={styles.selectFilter} onChange={handleChange}>
-          <option value="" label="All"></option>
-          <option value="frontend" label="Frontend"></option>
-          <option value="backend" label="Backend"></option>
-          <option value="fullstack" label="Fullstack"></option>
-        </select>
-        <div className={styles.major}>
+        >
+          <Grid item xs={6} md={4}>
+            <input
+              className={styles.search}
+              placeholder="Company name"
+              type="text"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />
+          </Grid>
+          <Grid item xs={4} md={4}>
+            <select className={styles.selectFilter} onChange={handleChange}>
+              <option value="" label="All"></option>
+              <option value="frontend" label="Frontend"></option>
+              <option value="backend" label="Backend"></option>
+              <option value="fullstack" label="Fullstack"></option>
+            </select>
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          spacing={3}
+          alignItems="stretch"
+          justifyContent="space-between"
+        >
           {datas
             .filter((info) => {
               if (search === "") {
@@ -66,38 +97,25 @@ const Classwork = ({ data }) => {
               }
             })
             .map((info) => (
-              <div key={info.id}>
+              <Grid item xs={12} sm={6} md={4} key={info.id}>
                 <Link href="/jobs/[id]" as={`/jobs/${info.id}`} passHref>
-                  <div className={styles.container}>
-                    <div className={styles.flexitem}>
-                      <div className={styles.card}>
-                        <p className={styles.jobTitle}>{info.jobTitle}</p>
-                        <div className={styles.companyDetails}>
-                          <p className={styles.company}>{info.coName}</p>
-                          <p className={styles.location}>{info.location}</p>
-                        </div>
-                        <div>
-                          <p className={styles.paragraph}>
-                            {info.jobDescription}
-                          </p>
-                        </div>
-
-                        <div className={styles.deadline}>
-                          <p>Deadline: {info.deadline}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <OppCard
+                    job={info.jobTitle}
+                    company={info.coName}
+                    location={info.location}
+                    deadline={info.deadline}
+                    paragraph={info.jobDescription}
+                  />
                 </Link>
-              </div>
+              </Grid>
             ))}
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     </>
   );
 };
 
-export default Classwork;
+export default workoverview;
 
 export const getServerSideProps = async () => {
   let data = [];
@@ -121,3 +139,5 @@ export const getServerSideProps = async () => {
     },
   };
 };
+
+//to view the projects added by admin
