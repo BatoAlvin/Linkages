@@ -1,17 +1,18 @@
 .contentBody {
   margin: 20px 120px;
+  /* width: 100%; */
+}
+
+@media screen and (max-width: 800px) {
+  .contentBody {
+    margin: 10px 10px;
+    width: 900px;
+    min-height: 101vh;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .contentBody {
     margin: 10px 10px;
-    width: 900px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .contentBody {
-    /* margin: 10px 10px; */
-    width: 900px;
   }
 }

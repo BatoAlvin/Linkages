@@ -250,12 +250,6 @@
   border-spacing: 2rem;
 }
 
-@media screen and (max-width: 780px) {
-  .messagesContainer2 {
-    height: 60vh;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .projectHeader2 {
     all: unset;
@@ -278,9 +272,16 @@
   }
 }
 
+@media screen and (max-width: 780px) {
+  .messagesContainer2 {
+    /* height: 50vh; */
+    margin-left: 180px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .myClassSection {
-    margin-left: 70px;
+    /* margin-left: 70px; */
     width: 100%;
   }
   .messagesContainer {
@@ -294,5 +295,26 @@
     font-size: 2rem;
     height: 100vh;
     margin-left: 6.7rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .myClassSection {
+    /* margin-left: 50px; */
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .myClassSection {
+    /* margin-right: 10px; */
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .myClassSection {
+    margin-left: 0px;
+    width: 100%;
   }
 }
