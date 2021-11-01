@@ -24,15 +24,21 @@ function Jobapplication() {
 
   return (
     <div className={styles.main}>
-      <form className={styles.form}>
-        <input type="text" placeholder="Name"/>
-        <input type="text" placeholder="Email" />
-        <input type="text" placeholder="Github" />
-        <input type="file" placeholder="Your CV" />
-        <Button className={classes.btn} variant="contained">
-          Apply
-        </Button>
-      </form>
+      <div>
+        <form className={styles.form}>
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Github" />
+        </form>
+        <form className={styles.form2}>
+          <input type="file" placeholder="Your CV" />
+          <Button className={classes.btn} variant="contained">
+            Apply
+          </Button>
+        </form>
+      </div>
+
+      <div></div>
     </div>
   );
 }

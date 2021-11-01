@@ -1,6 +1,6 @@
 .main {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
 }
 
 .form {
@@ -12,8 +12,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 4px 4px 4px rgb(207, 207, 207);
+  /* box-shadow: 2px 4px 4px 4px rgb(207, 207, 207); */
   border-radius: 6px;
+}
+.form2 {
+  width: 50%;
 }
 .form input {
   width: 60%;
