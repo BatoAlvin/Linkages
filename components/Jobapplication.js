@@ -128,7 +128,7 @@ function Jobapplication() {
               id="name"
               label="Github"
               type="text"
-              name="Github"
+              name="github"
               value={data.github}
               onChange={handleChange}
               fullWidth
@@ -139,7 +139,7 @@ function Jobapplication() {
               id="name"
               label="Cv Upload"
               type="file"
-              name="FileUpload"
+              name="fileUpload"
               value={data.fileUpload}
               onChange={handleChange}
               fullWidth
