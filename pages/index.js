@@ -5,16 +5,26 @@ import Link from "next/link";
 import { useState } from "react";
 import { db } from "../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { styled } from "@material-ui/core/styles";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
 import { Grid, Paper } from "@material-ui/core";
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
+const theme = createTheme({
+  typography: {
+    fontFamily: "Montserrat, sans-serif",
+    fontWeightRegular: 500,
+    body2: {
+      fontWeight: 600,
+      fontSize: "0.93rem",
+    },
+    h5: {
+      fontWeight: 620,
+    },
+    h6: {
+      fontWeight: 620,
+    },
+  },
+});
 
 //to view the projects added by admin
 const Classwork = ({ data }) => {
@@ -43,7 +53,7 @@ const Classwork = ({ data }) => {
     value === "" ? setData(data) : setData(filtered);
   };
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
@@ -111,7 +121,7 @@ const Classwork = ({ data }) => {
             ))}
         </Grid>
       </Grid>
-    </>
+    </ThemeProvider>
   );
 };
 

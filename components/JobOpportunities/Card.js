@@ -25,17 +25,18 @@ function OppCard({ company, location, paragraph, deadline, job }) {
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography variant="h5" color="textSecondary" gutterBottom>
+        <Typography variant="h5" gutterBottom>
           {job}
         </Typography>
-        <Typography variant="h5" color="textSecondary" gutterBottom>
+
+        <Typography variant="h5" gutterBottom>
           {company}
         </Typography>
         <Typography variant="h6" gutterBottom>
           {location}
         </Typography>
 
-        <Typography variant="body2" color="textSecondary" gutterBottom>
+        <Typography variant="body2" gutterBottom>
           {paragraph}
         </Typography>
         <Typography variant="body2" color="secondary">
