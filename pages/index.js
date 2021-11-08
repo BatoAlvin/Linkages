@@ -16,12 +16,22 @@ const theme = createTheme({
     body2: {
       fontWeight: 600,
       fontSize: "0.93rem",
+      "@media (max-width:600px)": {
+        fontSize: "2.1rem",
+      },
     },
     h5: {
       fontWeight: 620,
+      color: "#41ad48",
+      "@media (max-width:600px)": {
+        fontSize: "2.2rem",
+      },
     },
     h6: {
       fontWeight: 620,
+      "@media (max-width:600px)": {
+        fontSize: "2.2rem",
+      },
     },
   },
 });

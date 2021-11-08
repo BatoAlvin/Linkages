@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     // justifyContent: "space-between",
     // width: "100%",
     Height: 320,
+    width: "100%",
     cursor: "pointer",
   },
   btn: {
