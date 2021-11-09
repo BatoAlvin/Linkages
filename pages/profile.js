@@ -105,6 +105,7 @@ const handleSubmit = async (e) => {
             {!url && (
                 <form onSubmit={handleSubmit}  className={styles.form2}>
                   <div>
+                  <label>Image Upload</label>
                     <input
                       type="file"
                       className="form-control-file"

@@ -110,8 +110,10 @@ const handleSubmit = async (e) => {
             {!url && (
                 <form onSubmit={handleSubmit}  className={styles.form2}>
                   <div>
+                    <label>CV Upload</label>
                     <input
                       type="file"
+                      label='CV Upload'
                       className="form-control-file"
                       name="imageUrl"
                       onChange={(e) => setFile(e.target.files[0])}
