@@ -49,9 +49,8 @@ function Apply() {
       const docRef = await addDoc(collection(db, "profileApplications"), data)
         .then((docRef) => {
           console.log("Profile added", docRef.id);
-          setInterval(() => {
             setShowAlert(true);
-          });
+      
         })
         .catch((error) => {
           console.error("Error occurred while adding profile", error);
