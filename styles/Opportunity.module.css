@@ -4,26 +4,37 @@
   align-items: center;
   padding-top: 15px;
 }
-.selectFilter {
-  padding: 8px 25px;
-  width: 150px;
-  border-radius: 3px;
-  margin-bottom: 18px;
-  color: #2980b9;
-  font-size: 16px;
-}
 
 .search {
-  padding: 8px 25px;
-  width: 250px;
-  border-radius: 3px;
-  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #2980b9;
+  margin: 18px 0 35px 0;
+}
+.selectFilter {
+  padding: 7.3px 25px;
+  width: 150px;
+  border-radius: 0 3px 3px 0;
   color: #2980b9;
   font-size: 16px;
+  border: 0.5px solid gray;
 }
+
+.search1 {
+  padding: 8px 25px;
+  width: 250px;
+  border-radius: 3px 0 0 3px;
+  color: #2980b9;
+  font-size: 16px;
+  border: 0.5px solid gray;
+}
+
 .selectFilter option {
   font-size: 16px;
   padding: 15px 0;
+  text-align: center;
 }
 .major {
   padding: 1rem;
@@ -100,6 +111,15 @@
   }
   .paragraph {
     font-size: 2rem;
+  }
+
+  .selectFilter,
+  .search1 {
+    font-size: 1.3rem;
+    padding: 11px 30px;
+  }
+  .selectFilter option {
+    font-size: 13px;
   }
 }
 

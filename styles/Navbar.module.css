@@ -115,7 +115,7 @@
 @media only screen and (max-width: 480px) {
 }
 
-@media only screen and (max-width: 415px) {
+@media only screen and (max-width: 480px) {
   .navbar {
     width: 125.5vh;
   }
@@ -132,7 +132,18 @@
   }
 
   .links.links.hidden {
-    width: 137vh;
+    width: 144vh;
+    min-height: 316px;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .navbar {
+    width: 142vh;
+  }
+
+  .links.links.hidden {
+    width: 162vh;
     min-height: 316px;
   }
 }

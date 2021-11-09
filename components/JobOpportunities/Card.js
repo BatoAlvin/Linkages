@@ -3,11 +3,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
-    // display: "flex",
-    // flexDirection: "column",
-    // justifyContent: "space-between",
-    // width: "100%",
-    Height: 320,
+    minHeight: 270,
     width: "100%",
     cursor: "pointer",
   },
@@ -24,7 +20,11 @@ const useStyles = makeStyles({
 function OppCard({ company, location, paragraph, deadline, job }) {
   const classes = useStyles();
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card
+      className={classes.root}
+      style={{ minHeight: "20vw" }}
+      variant="outlined"
+    >
       <CardContent>
         <Typography variant="h5" gutterBottom>
           {job}
