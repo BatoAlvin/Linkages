@@ -49,7 +49,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className={styles.navlink}>
-            <Link href="/createprofile" passHref={true}>
+            <Link href="/profile" passHref={true}>
               Create profile
             </Link>
           </li>

@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core";
 import {storage} from "../firebase/firebase"
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import { message, Alert } from "antd";
+import { Typography } from "@material-ui/core";
 import "antd/dist/antd.css";
 import {
   ref,
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Jobapplication() {
+function Apply() {
   const classes = useStyles();
 
   const db = getFirestore();
@@ -38,6 +39,7 @@ function Jobapplication() {
 
   const [data, setData] = useState({
     fisrtName: "",
+    lastName: "",
     email: "",
     github: "",
     imageUrl:"",
@@ -45,9 +47,9 @@ function Jobapplication() {
   
   const handleSubmits = async (e) => {
       e.preventDefault();
-      const docRef = await addDoc(collection(db, "profileApplications"), data)
+      const docRef = await addDoc(collection(db, "job_application"), data)
         .then((docRef) => {
-          console.log("Profile added", docRef.id);
+          console.log("Jobapplication added", docRef.id);
           setInterval(() => {
             setShowAlert(true);
           });
@@ -69,6 +71,7 @@ const handleSubmit = async (e) => {
   const downloadURL = await getDownloadURL(storageRef);
   console.log(downloadURL);
   setUrl(downloadURL);
+  setData({...data, imageUrl: downloadURL})
   setFile(null);
   setLoading(false);
 }
@@ -80,17 +83,26 @@ const handleSubmit = async (e) => {
           <Alert
             type="success"
             message="Successful"
-            description="Profile has been sent"
+            description="Application has been sent"
             style={{ backgroundColor: "#5cb85c" }}
             closable
           />
         )}
       </div>
       <div>
-        <form onSubmit={handleSubmits} className={styles.form}>
-          <input type="text" placeholder="Name"  value={data.fisrtName} name="fisrtName" onChange={handleChange} />
-          <input type="text" placeholder="Email"  value={data.email} name="email" onChange={handleChange} />
-          <input type="text" placeholder="Github" value={data.github} name="github" onChange={handleChange} />
+        <form onSubmit={handleSubmits} className={styles.form} autoComplete='off'>
+          <Typography gutterBottom>Job Application Form</Typography>
+          <input type="text" placeholder="FirstName"  value={data.fisrtName} name="fisrtName" onChange={handleChange} />
+          <input type="text" placeholder="lastName"  value={data.lastName} name="lastName" onChange={handleChange} />
+          <input type="text" placeholder="Email" value={data.email} name="email" onChange={handleChange} />
+          <input type="text" placeholder="JobTitle" value={data.jobTItle} name="jobTItle" onChange={handleChange} />
+          <input type="text" placeholder="GithubHandle" value={data.github} name="github" onChange={handleChange} />
+         
+          <Button color="primary" variant='outlined' type="submit">
+ Apply
+</Button>
+
+
         </form>
 
         
@@ -123,9 +135,7 @@ const handleSubmit = async (e) => {
      </a>
      </Link>
  }
- <Button color="primary" type="submit">
- Apply
-</Button>
+
   
 
 </div>
@@ -133,4 +143,4 @@ const handleSubmit = async (e) => {
   );
 }
 
-export default Jobapplication;
+export default Apply;

@@ -4,6 +4,8 @@ import { db } from "./../../firebase/firebase";
 import { getDoc, collection, doc } from "firebase/firestore";
 import FlagIcon from "@material-ui/icons/Flag";
 import Jobapplication from "../../components/Jobapplication";
+import Link from "next/link";
+import {Button,Typography} from "@material-ui/core"
 
 const Project = ({ info }) => {
   return (
@@ -54,7 +56,17 @@ const Project = ({ info }) => {
                 </h4>
               </div>
             </div>
-            <Jobapplication />
+            
+            <Link href='/apply'>
+            <Button
+          variant="contained"
+          color="primary"
+          
+        >
+          Apply
+        </Button>
+        </Link>
+
           </div>
         </div>
       </div>
