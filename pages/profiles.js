@@ -2,7 +2,9 @@ import {storage} from "../firebase/firebase"
 import Button from "@material-ui/core/Button";
 import styles from "../styles/application.module.css";
 import Link from "next/link";
+import { db} from "../firebase/firebase";
 import { useState } from "react";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 import {
   ref,
   uploadBytesResumable,
@@ -10,6 +12,7 @@ import {
 } from "firebase/storage";
 
 const Profiles = () => {
+  const db = getFirestore();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(null);
@@ -28,9 +31,7 @@ const Profiles = () => {
     const docRef = await addDoc(collection(db, "profileApplications"), data)
       .then((docRef) => {
         console.log("Profile added", docRef.id);
-        setInterval(() => {
-          setShowAlert(true);
-        });
+      
       })
       .catch((error) => {
         console.error("Error occurred while adding profile", error);
@@ -54,8 +55,19 @@ const Profiles = () => {
       {!url && (
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className="form-group">
-          <input type="text" placeholder="Name" value={data.fisrtName} name="fisrtName" onChange={handleChange}/>
-          <input type="text" placeholder="Email"  value={data.email} name="email" onChange={handleChange}/>
+          <input type="email" placeholder="Email" value={data.email} name="email" onChange={handleChange} 
+          rules={[
+            {
+              type:'email',
+              message:"Input required"
+            },
+            {
+              required: true,
+              message:"Please"
+            }
+          ]}
+          />
+          <input type="text" placeholder="Name"  value={data.fisrtName} name="fisrtName" onChange={handleChange}/>
           <input type="text" placeholder="Github"  value={data.github} name="github" onChange={handleChange}/><br/>
         
 
@@ -73,6 +85,7 @@ const Profiles = () => {
           >
             {loading ? "Uploading..." : "Upload"}
           </button>
+          <Button type='submit'> Apply</Button>
           </form>
       )}
       {url &&
