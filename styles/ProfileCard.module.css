@@ -1,6 +1,7 @@
 .right {
   background-color: #fff;
   height: 100%;
+  width: 100%;
 }
 .projectContent {
   height: 100%;
@@ -9,6 +10,7 @@
   display: flex;
   justify-content: space-around;
   height: 100%;
+  width: 100%;
   flex-wrap: wrap;
 }
 .details {
@@ -18,15 +20,15 @@
   border-radius: 2%;
   margin: 17px 5px;
   width: 250px;
-  height: 290px;
+  height: 310px;
   padding: 5px;
   background-color: #d9e0e8;
 }
 .pic {
-  width: 15rem;
+  width: 220px;
   /* height: 100px; */
-  /* margin: 11% 25%; */
-
+  margin-left: 2%;
+  margin-right: 2%;
   border-radius: 50%;
 }
 .title {
@@ -35,6 +37,7 @@
   color: #0072a1;
   font-size: 19px;
   padding: 0% 7% 0% 7%;
+  margin-top: 2%;
 }
 .description {
   font-weight: 400;

@@ -21,7 +21,7 @@ function Profiles({ data}) {
                 <a target="_blank" rel="noopener noreferrer">
                
                   <div className={styles.pic}>
-                  <img src={info.imageUrl}  className={styles.pic}  width="250" height="200" unoptimized/>
+                  <img src={info.imageUrl} className={styles.pic}   width="100%" height="240" unoptimized/>
                   </div>
                   
                   <p className={styles.title}>
