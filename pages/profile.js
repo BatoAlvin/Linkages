@@ -93,26 +93,19 @@ const handleSubmit = async (e) => {
           <input type="text" placeholder="FirstName"  value={data.fisrtName} name="fisrtName" onChange={handleChange} />
           <input type="text" placeholder="lastName"  value={data.lastName} name="lastName" onChange={handleChange} />
           <input type="text" placeholder="JobTitle" value={data.jobTItle} name="jobTItle" onChange={handleChange} />
-          <Button color="primary" variant='outlined' type="submit">
- Submit
-</Button>
 
-
-        </form>
-
-        
         
             {!url && (
-                <form onSubmit={handleSubmit}  className={styles.form2}>
-                  <div>
+              <form onSubmit={handleSubmit}  className={styles.form2}>
                   <label>Image Upload</label>
+                  <div>
                     <input
                       type="file"
                       className="form-control-file"
                       name="imageUrl"
+                      placeholder = "Upload "
                       onChange={(e) => setFile(e.target.files[0])}
                     />
-                  </div>
                   <button
                     type="submit"
                     className="btn btn-primary mb-2"
@@ -120,6 +113,7 @@ const handleSubmit = async (e) => {
                   >
                     {loading ? "Uploading..." : "Upload"}
                   </button>
+                  </div>
                 </form>
 
   
@@ -130,9 +124,15 @@ const handleSubmit = async (e) => {
      <input className={styles.url} type="text" value={url} readOnly />
      </a>
      </Link>
+
+        
+        
  }
 
-  
+          <Button color="primary" variant='outlined' type="submit">Submit</Button>
+
+
+          </form>
 
 </div>
     </div>
