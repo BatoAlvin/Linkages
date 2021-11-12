@@ -49,7 +49,10 @@ function Apply() {
       const docRef = await addDoc(collection(db, "profileApplications"), data)
         .then((docRef) => {
           console.log("Profile added", docRef.id);
-            setShowAlert(true);
+            // setShowAlert(true);
+            setInterval(() => {
+              setShowAlert(true);
+            });
       
         })
         .catch((error) => {
@@ -114,20 +117,20 @@ const handleSubmit = async (e) => {
                     {loading ? "Uploading..." : "Upload"}
                   </button>
                   </div>
+                  {url &&
+                    <Link href={url}>
+                    <a target="_blank">
+                    <input className={styles.url} type="text" value={url} readOnly />
+                    </a>
+                    </Link>
+                  
+                       
+                       
+                  }
                 </form>
 
   
    )}
-   {url &&
-     <Link href={url}>
-     <a target="_blank">
-     <input className={styles.url} type="text" value={url} readOnly />
-     </a>
-     </Link>
-
-        
-        
- }
 
           <Button color="primary" variant='outlined' type="submit">Submit</Button>
 
