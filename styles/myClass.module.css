@@ -271,7 +271,13 @@ c.myClassSection {
     flex-direction: column;
   }
 }
-
+.pic {
+  width: 220px;
+  /* height: 100px; */
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 50%;
+}
 @media screen and (max-width: 780px) {
   .messagesContainer2 {
     /* height: 50vh; */
