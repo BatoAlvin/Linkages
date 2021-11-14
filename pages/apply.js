@@ -96,6 +96,7 @@ function Apply() {
             value={data.fisrtName}
             name="fisrtName"
             onChange={handleChange}
+            required
           />
           <input
             type="text"
@@ -103,21 +104,31 @@ function Apply() {
             value={data.lastName}
             name="lastName"
             onChange={handleChange}
+            required
           />
           <input
-            type="text"
+            type="email"
             placeholder="Email"
             value={data.email}
             name="email"
             onChange={handleChange}
           />
-          <input
+          <select required onChange={handleChange} value={data.jobTitle}>
+            <option value="" disabled selected>
+              Job title
+            </option>
+            <option>Frontend</option>
+            <option>Backend</option>
+            <option>Fullstack</option>
+            <option>UI/UX</option>
+          </select>
+          {/* <input
             type="text"
             placeholder="JobTitle"
             value={data.jobTItle}
             name="jobTItle"
             onChange={handleChange}
-          />
+          /> */}
           <input
             type="text"
             placeholder="GithubHandle"
@@ -126,14 +137,14 @@ function Apply() {
             onChange={handleChange}
           />
 
-          <Button
-            className={classes.btn}
+          <button
+            className={styles.btn}
             color="primary"
             variant="outlined"
             type="submit"
           >
             Apply
-          </Button>
+          </button>
         </form>
 
         {!url && (
