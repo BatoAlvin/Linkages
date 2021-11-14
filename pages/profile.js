@@ -96,10 +96,10 @@ const handleSubmit = async (e) => {
           <input type="text" placeholder="FirstName"  value={data.fisrtName} name="fisrtName" onChange={handleChange} />
           <input type="text" placeholder="lastName"  value={data.lastName} name="lastName" onChange={handleChange} />
           <input type="text" placeholder="JobTitle" value={data.jobTItle} name="jobTItle" onChange={handleChange} />
-
+          <Button color="primary" variant='outlined' type="submit">Submit</Button>
         
             {!url && (
-              <form onSubmit={handleSubmit}  className={styles.form2}>
+              <form onSubmit={handleSubmit}  className={styles.formm}>
                   <label>Image Upload</label>
                   <div>
                     <input
@@ -132,7 +132,7 @@ const handleSubmit = async (e) => {
   
    )}
 
-          <Button color="primary" variant='outlined' type="submit">Submit</Button>
+       
 
 
           </form>

@@ -8,20 +8,20 @@ function Profiles({ data}) {
   //console.log(data)
   return (
     <section className={styles.right}>
-      {/* {console.log(data)} */}
-      {/* <ProfileHeader profileDetails={profileDetails} /> */}
       <div className={styles.border}></div>
       <div></div>
 
       <div className={styles.projectContent}>
         <div className={styles.projectDetail}>
+         
           {data.map((info) => (
+             <Link href='/profiles/[id]' as={`/profiles/${info.id}`} passHref>
             <div key={info.id}>
               <div className={styles.details}>
                 <a target="_blank" rel="noopener noreferrer">
                
                   <div className={styles.pic}>
-                  <img src={info.imageUrl} className={styles.pic}   width="100%" height="240" unoptimized/>
+                  <img src={info.imageUrl} className={styles.pic}   width="100%" height="240" unOptimized/>
                   </div>
                   
                   <p className={styles.title}>
@@ -33,7 +33,7 @@ function Profiles({ data}) {
               </div>
               
             </div>
-            
+            </Link>
           ))}
          
         </div>
