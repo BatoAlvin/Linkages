@@ -116,14 +116,14 @@ function Apply() {
             onChange={handleChange}
             required
           />
-          <select required onChange={handleChange} value={data.jobTitle} name="jobTitle">
-            <option value="" disabled selected>
+          <select onChange={handleChange} value={data.jobTitle} required>
+            <option disabled selected>
               Job title
             </option>
-            <option>Frontend</option>
-            <option>Backend</option>
-            <option>Fullstack</option>
-            <option>UI/UX</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Fullstack">Fullstack</option>
+            <option value="UI/UX">UI/UX</option>
           </select>
           {/* <input
             type="text"

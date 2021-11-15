@@ -53,7 +53,7 @@ function Profile() {
       .catch((error) => {
         console.error("Error occurred while adding profile", error);
       });
-      form.resetFields();
+      // form.resetFields();
   };
 
   const handleChange = (e) =>

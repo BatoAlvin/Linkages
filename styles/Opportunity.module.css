@@ -22,7 +22,9 @@
 }
 .selectFilter {
   padding: 7.3px 25px;
+  
   width: 150px;
+  height: 35px;
   border-radius: 0 3px 3px 0;
   color: #2980b9;
   font-size: 16px;
@@ -32,6 +34,7 @@
 .search1 {
   padding: 8px 25px;
   width: 250px;
+  height: 35px;
   border-radius: 3px 0 0 3px;
   color: #2980b9;
   font-size: 16px;
