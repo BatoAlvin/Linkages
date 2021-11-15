@@ -1,5 +1,4 @@
 import Head from "next/head";
-//import styles from "../../styles/ProfileCard.module.css";
 import styles from "./../../styles/myClass.module.css";
 import { db } from "./../../firebase/firebase";
 import { getDoc, getDocs, collection, doc } from "firebase/firestore";
@@ -8,7 +7,6 @@ import Link from "next/link";
 import { Button, Typography } from "@material-ui/core";
 
 const Profileid = ({ info }) => {
-  console.log(info.id);
   return (
     <>
       <Head>
@@ -27,7 +25,6 @@ const Profileid = ({ info }) => {
                     <h4 style={{ color: "#096691", fontWeight: "900" }}>
                       {info.coName}
                     </h4>
-
                     <p>
                       <span> Avatar </span>
                       <img
@@ -35,20 +32,18 @@ const Profileid = ({ info }) => {
                         className={styles.pic}
                         width="250"
                         height="200"
-                        unOptimized
+                        unoptimized="true"
                       />
                     </p>
-
                     <p>
                       <span>FirstName :</span> {info.fisrtName}
                     </p>
                     <p>
-                      {" "}
-                      <span>LastName:</span> {info.lastName}{" "}
+                      <span>LastName:</span> {info.lastName}
                     </p>
                     <p>
                       <span>JobTitle: </span>
-                      {info.jobTItle}{" "}
+                      {info.jobTItle}
                     </p>
                   </div>
                 </div>
@@ -74,9 +69,7 @@ const Profileid = ({ info }) => {
 export const getStaticProps = async (context) => {
   const docRef = doc(db, "profileApplications", context.params.id);
   const docSnap = await getDoc(docRef);
-
-  const info = await docSnap.data();
-  console.log(info);
+  const info = {id: docSnap.id, ...docSnap.data()};
 
   return {
     props: {
