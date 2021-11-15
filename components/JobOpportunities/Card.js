@@ -1,5 +1,6 @@
 import { Box, Card, CardContent, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import styles from "../../styles/Opportunity.module.css"
 
 const useStyles = makeStyles({
   root: {
@@ -40,9 +41,11 @@ function OppCard({ company, location, paragraph, deadline, job }) {
         <Typography variant="body2" gutterBottom>
           {paragraph}
         </Typography>
+        <p className={styles.read}>Read more.....</p>
         <Typography variant="body2" color="secondary">
           {deadline}
         </Typography>
+        
       </CardContent>
     </Card>
   );

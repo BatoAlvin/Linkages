@@ -22,6 +22,7 @@ const theme = createTheme({
     },
     h5: {
       fontWeight: 620,
+      fontSize: 22,
       color: "#41ad48",
       "@media (max-width:600px)": {
         fontSize: "2.2rem",
@@ -29,6 +30,7 @@ const theme = createTheme({
     },
     h6: {
       fontWeight: 620,
+      fontSize: 20,
       "@media (max-width:600px)": {
         fontSize: "2.2rem",
       },
@@ -69,35 +71,30 @@ const Classwork = ({ data }) => {
         <meta name="description" content="Become a software developer" />
       </Head>
 
-      <Grid container spacing={0}>
-        <Grid
-          container
-          spacing={1}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Grid item xs={6} md={4}>
+      <Grid
+        container
+        spacing={0}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <div container spacing={1} className={styles.search}>
+          <div item xs={6} md={4}>
             <input
-              className={styles.search}
+              className={styles.search1}
               placeholder="Company name"
               type="text"
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
             />
-          </Grid>
-          <Grid item xs={4} md={4}>
-            <select className={styles.selectFilter} onChange={handleChange}>
-              <option value="" label="All"></option>
-              <option value="frontend" label="Frontend"></option>
-              <option value="backend" label="Backend"></option>
-              <option value="fullstack" label="Fullstack"></option>
-            </select>
-          </Grid>
-        </Grid>
+          </div>
+
+          <select className={styles.selectFilter} onChange={handleChange}>
+            <option value="" label="All"></option>
+            <option value="frontend" label="Frontend"></option>
+            <option value="backend" label="Backend"></option>
+            <option value="fullstack" label="Fullstack"></option>
+          </select>
+        </div>
         <Grid
           container
           spacing={3}
@@ -127,6 +124,7 @@ const Classwork = ({ data }) => {
                     paragraph={info.jobDescription}
                   />
                 </Grid>
+                
               </Link>
             ))}
         </Grid>
