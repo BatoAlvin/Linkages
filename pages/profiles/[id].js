@@ -10,7 +10,7 @@ const Profileid = ({ info }) => {
   return (
     <>
       <Head>
-        <title>Profile Description</title>
+        <title>{info.fisrtName}Profile Description</title>
       </Head>
       <div className={styles.myClassSection}>
         <div className={styles.myClassBorder}>

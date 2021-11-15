@@ -12,6 +12,7 @@ import { db } from "./../../firebase/firebase";
 import styles from "./../../styles/myClass.module.css";
 import { storage } from "../../firebase/firebase";
 import Link from "next/link";
+import Head from "next/head";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function edits({ info }) {
@@ -43,6 +44,7 @@ function edits({ info }) {
 
   return (
     <div>
+      <Head>{info.firstName} | Edit Profile</Head>
       <form onSubmit={handleSubmit}>
                 <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
         <input name="lastName" value={update.lastName} onChange={handleChange} />         {" "}
