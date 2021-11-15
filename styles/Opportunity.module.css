@@ -4,7 +4,14 @@
   align-items: center;
   padding-top: 15px;
 }
-
+.read{
+  color: #0072a1;
+  font-size: 16px;
+  cursor: pointer;
+}
+.read:hover{
+  text-decoration: underline;
+}
 .search {
   display: flex;
   justify-content: center;
