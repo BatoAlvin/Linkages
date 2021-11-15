@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import FlagIcon from "@material-ui/icons/Flag";
+import { Button, Typography } from "@material-ui/core";
+import { message, Alert } from "antd";
+import "antd/dist/antd.css";
 import {
   collection,
   doc,
@@ -16,6 +20,7 @@ import Head from "next/head";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function edits({ info }) {
+    const [showAlert, setShowAlert] = useState(false);
   const [update, setUpdate] = useState(info);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(null);
@@ -26,6 +31,7 @@ function edits({ info }) {
     e.preventDefault();
     const profileRef = doc(db, "profileApplications", info.id);
     await updateDoc(profileRef, update);
+    setShowAlert(true);
     console.log("updated");
   };
 
@@ -45,41 +51,87 @@ function edits({ info }) {
   return (
     <div>
       <Head>{info.firstName} | Edit Profile</Head>
-      <form onSubmit={handleSubmit}>
-                <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
-        <input name="lastName" value={update.lastName} onChange={handleChange} />         {" "}
-        <button type="submit">Edit</button>     {" "}
-      </form>
-      {!url && (
-        <form onSubmit={handleSubmits}>
-          <input
-            type="file"
-            name="imageUrl"
-            value={update.lmageUrl}
-            onChange={(e) => setFile(e.target.files[0])}
+
+      <div className={styles.myClassSection}>
+        <div className={styles.myClassBorder}>
+          <div className={styles.projectSection}>
+            <div className={styles.projectHeader1}>
+              <h3>PROFILE UPDATE</h3>
+            </div>
+            <div>
+        {showAlert && (
+          <Alert
+            type="success"
+            message="Successful"
+            description="Profile Updated"
+            style={{ backgroundColor: "#5cb85c" }}
+            closable
           />
-          <button type="submit" className="btn btn-primary mb-2" disabled={loading}>
-            {loading ? "Uploading..." : "Upload"}
-          </button>
-          <span>Avatar </span>
-          <img
-            src={info.imageUrl}
-            className={styles.pic}
-            width="250"
-            height="200"
-            unoptimized="true"
-          />
-                                                   
-        </form>
-      )}
-      {url && (
-        <Link href={url}>
-          <a target="_blank">
-            <input className={styles.url} type="text" value={url} readOnly />     
-          </a>
-             
-        </Link>
-      )}
+        )}
+      </div>
+            <div className={styles.projectHeader2}>
+              <div className={styles.projectHeaderSec1}>
+                <div>
+                  <div className={styles.container}>
+                    <form onSubmit={handleSubmit}>
+                      <label>FirstName</label>
+                             {" "}
+                      <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
+                      <br />
+                      <br />
+                      <label>LastName</label>
+                      <input name="lastName" value={update.lastName} onChange={handleChange} />   
+                      <br />
+                      <br />
+                      <label>Telephone Number</label>
+                      <input type="text" value={update.tele} name="tele" onChange={handleChange} />
+                      <br />
+                      <br />
+                      <label>Github Handle</label>
+                      <input
+                        type="text"
+                        value={update.github}
+                        name="github"
+                        onChange={handleChange}
+                      />
+                      <br />
+                      <br />     {" "}
+                      <Button variant="contained" color="primary" type="submit">
+                        Edit
+                      </Button>
+                           {" "}
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.projectHeaderSec2}>
+                {!url && (
+                  <form onSubmit={handleSubmits}>
+                    <input
+                      type="file"
+                      name="imageUrl"
+                      value={update.lmageUrl}
+                      onChange={(e) => setFile(e.target.files[0])}
+                    />
+                    <button type="submit" className="btn btn-primary mb-2" disabled={loading}>
+                      {loading ? "Uploading..." : "Upload"}
+                    </button>
+                    <span>Avatar </span>
+                    <img
+                      src={info.imageUrl}
+                      className={styles.pic}
+                      width="250"
+                      height="200"
+                      unoptimized="true"
+                    />
+                                                             
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
