@@ -103,7 +103,7 @@ function edits({ info }) {
   );
 }
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const docRef = doc(db, "profileApplications", context.params.id);
   const docSnap = await getDoc(docRef);
 
@@ -117,4 +117,23 @@ export const getServerSideProps = async (context) => {
   };
 };
 
+export async function getStaticPaths() {
+    let data = [];
+    const projects = await getDocs(collection(db, "profileApplications"));
+    projects.forEach((doc) => {
+      return data.push({
+        ...doc.data(),
+        id: doc.id,
+      });
+    });
+  
+    const paths = data.map((product) => ({
+      params: { id: product.id.toString() },
+    }));
+    return {
+      paths,
+      fallback: false,
+    };
+  }
+  
 export default edits;

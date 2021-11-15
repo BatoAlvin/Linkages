@@ -36,6 +36,8 @@ function Profile() {
   const [data, setData] = useState({
     fisrtName: "",
     lastName: "",
+    tele: "",
+    github:"",
     jobTitle:"",
     imageUrl: "",
   });
@@ -51,6 +53,7 @@ function Profile() {
       .catch((error) => {
         console.error("Error occurred while adding profile", error);
       });
+      form.resetFields();
   };
 
   const handleChange = (e) =>
@@ -105,7 +108,27 @@ function Profile() {
             onChange={handleChange}
             required
           />
-          <select required onChange={handleChange} value={data.jobTitle} name="jobTitle">
+         
+
+          <input
+            type="text"
+            placeholder="Telephone"
+            value={data.tele}
+            name="tele"
+            onChange={handleChange}
+            required
+          />
+
+<input
+            type="text"
+            placeholder="Github Handle"
+            value={data.github}
+            name="github"
+            onChange={handleChange}
+            required
+          />
+
+<select required onChange={handleChange} value={data.jobTitle} name="jobTitle">
             <option value="" disabled selected>
               Job title
             </option>
@@ -114,6 +137,7 @@ function Profile() {
             <option>Fullstack</option>
             <option>UI/UX</option>
           </select>
+
           {/* <input
             type="text"
             placeholder="JobTitle"

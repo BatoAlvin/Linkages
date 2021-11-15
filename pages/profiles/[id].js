@@ -2,12 +2,13 @@ import Head from "next/head";
 //import styles from "../../styles/ProfileCard.module.css";
 import styles from "./../../styles/myClass.module.css";
 import { db } from "./../../firebase/firebase";
-import { getDoc, collection, doc } from "firebase/firestore";
+import { getDoc, getDocs, collection, doc } from "firebase/firestore";
 import FlagIcon from "@material-ui/icons/Flag";
 import Link from "next/link";
-import {Button,Typography} from "@material-ui/core"
+import { Button, Typography } from "@material-ui/core";
 
 const Profileid = ({ info }) => {
+  console.log(info.id);
   return (
     <>
       <Head>
@@ -29,7 +30,13 @@ const Profileid = ({ info }) => {
 
                     <p>
                       <span> Avatar </span>
-                      <img src={info.imageUrl} className={styles.pic} width='250' height='200' unOptimized/>
+                      <img
+                        src={info.imageUrl}
+                        className={styles.pic}
+                        width="250"
+                        height="200"
+                        unOptimized
+                      />
                     </p>
 
                     <p>
@@ -43,32 +50,20 @@ const Profileid = ({ info }) => {
                       <span>JobTitle: </span>
                       {info.jobTItle}{" "}
                     </p>
-                   
-                  
                   </div>
                 </div>
               </div>
               <div className={styles.projectHeaderSec2}>
                 <FlagIcon style={{ fill: "#41AD48" }} />
-                <h4>
-                  TO UPDATE YOUR PROFILE SIMPLY CLICK THE BUTTON BELOW.
-                </h4>
+                <h4>TO UPDATE YOUR PROFILE SIMPLY CLICK THE BUTTON BELOW.</h4>
               </div>
             </div>
-            
-            {/* <Link href='/profiles/[id]' as={`/profiles/${info.id}`} passHref>
-            <Button
-          variant="contained"
-          color="primary"
-          
-        >
-          Update
-        </Button>
-        </Link> */}
 
-        
-       
-
+            <Link href="/updates/[id]" as={`/updates/${info.id}`} passHref>
+              <Button variant="contained" color="primary">
+                Update
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -76,7 +71,7 @@ const Profileid = ({ info }) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const docRef = doc(db, "profileApplications", context.params.id);
   const docSnap = await getDoc(docRef);
 
@@ -91,3 +86,22 @@ export const getServerSideProps = async (context) => {
 };
 
 export default Profileid;
+
+export async function getStaticPaths() {
+  let data = [];
+  const projects = await getDocs(collection(db, "profileApplications"));
+  projects.forEach((doc) => {
+    return data.push({
+      ...doc.data(),
+      id: doc.id,
+    });
+  });
+
+  const paths = data.map((product) => ({
+    params: { id: product.id.toString() },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
