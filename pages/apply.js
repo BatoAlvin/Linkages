@@ -37,6 +37,7 @@ function Apply() {
     fisrtName: "",
     lastName: "",
     email: "",
+    jobTitle:"",
     github: "",
     imageUrl: "",
   });
@@ -112,8 +113,9 @@ function Apply() {
             value={data.email}
             name="email"
             onChange={handleChange}
+            required
           />
-          <select required onChange={handleChange} value={data.jobTitle}>
+          <select required onChange={handleChange} value={data.jobTitle} name="jobTitle">
             <option value="" disabled selected>
               Job title
             </option>
@@ -135,6 +137,7 @@ function Apply() {
             value={data.github}
             name="github"
             onChange={handleChange}
+            required
           />
 
           <button
@@ -153,6 +156,7 @@ function Apply() {
               <label>Upload CV</label>
               <input
                 type="file"
+                required
                 label="CV Upload"
                 className="form-control-file"
                 name="imageUrl"
@@ -163,18 +167,21 @@ function Apply() {
               type="submit"
               className="btn btn-primary mb-2"
               disabled={loading}
+              
             >
               {loading ? "Uploading..." : "Upload"}
             </button>
           </form>
         )}
+{/* 
         {url && (
           <Link href={url}>
             <a target="_blank">
               <input className={styles.url} type="text" value={url} readOnly />
             </a>
           </Link>
-        )}
+        )} */}
+
       </div>
     </div>
   );

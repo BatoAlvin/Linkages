@@ -29,7 +29,7 @@ function edits({ info }) {
     e.preventDefault();
     const washingtonRef = doc(
       db,
-context.params.id,
+'GDz1y3wBuaXdQkOF9vSt',
       "profileApplications",
       
     );
