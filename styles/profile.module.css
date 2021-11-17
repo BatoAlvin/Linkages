@@ -1,0 +1,195 @@
+c.myClassSection {
+  background-color: #f3f6f9;
+  /* width: 135vh; */
+  height: 100%;
+  border-radius: 30px 20px 20px 20px;
+  /* margin-left: 6.8rem; */
+}
+.myClassBorder {
+  margin: 0 auto;
+}
+
+.myClassHeader {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid #808080;
+  padding: 2rem;
+}
+
+.myClassHeader a {
+  font-weight: bold;
+  font-size: 1.17em;
+}
+.myClassActive {
+  color: #096691;
+  border-bottom: 5px solid #096691;
+}
+
+.myClassProjectAdd {
+  border: 1px solid #edde46;
+  background-color: #edde46;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+
+.projectSection {
+  /* padding-left:  6rem; */
+  margin: 0 auto;
+  padding: 2rem;
+}
+.projectHeader1 {
+  border-bottom: 1px solid #808080;
+}
+
+.projectHeader1 h3 {
+  color: #096691;
+  font-weight: 900;
+}
+.projectHeader2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.projectHeaderSec1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.projectHeaderSec2 {
+  background-color: white;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+  border-radius: 2px;
+  width: 30%;
+  color: #a82e2e;
+  font-weight: 800;
+  margin-left: 5px;
+}
+
+.btn {
+  margin: 0.5rem 0;
+  margin-left: 1.8rem;
+  padding: 0.6rem;
+  background: #096691;
+  box-shadow: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.projectHeaderSec2 button:hover {
+  cursor: pointer;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+}
+.container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 5px 0;
+}
+
+.container div input {
+  padding: 3px 8px;
+  margin-left: 10px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+.editbtn {
+  padding: 0.4rem;
+  margin-left: 5.5rem;
+  background: #096691;
+  box-shadow: none;
+  color: white;
+
+  border-radius: 5px;
+  text-transform: uppercase;
+  width: 100px;
+  border: none;
+}
+.editbtn:hover {
+  cursor: pointer;
+  background-color: #1286b8;
+}
+
+@media screen and (max-width: 600px) {
+  .projectHeader2 {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .projectHeaderSec2 {
+    width: 100%;
+  }
+  .messagesContainer {
+    width: 70vh;
+    height: 100vh;
+  }
+  .DateInput {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.pic {
+  width: 220px;
+  /* height: 100px; */
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 50%;
+}
+@media screen and (max-width: 780px) {
+  .messagesContainer2 {
+    /* height: 50vh; */
+    margin-left: 180px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .myClassSection {
+    /* margin-left: 70px; */
+    width: 100%;
+  }
+  .messagesContainer {
+    height: 30vh;
+    margin-left: 90px;
+  }
+  .myClassBorder {
+    font-size: 2rem;
+  }
+  .messagesContainer2 {
+    font-size: 2rem;
+    height: 100vh;
+    margin-left: 6.7rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .myClassSection {
+    /* margin-left: 50px; */
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .myClassSection {
+    /* margin-right: 10px; */
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .myClassSection {
+    margin-left: 0px;
+    width: 100%;
+  }
+}

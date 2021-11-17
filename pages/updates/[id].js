@@ -14,13 +14,14 @@ import {
 } from "firebase/firestore";
 import { db } from "./../../firebase/firebase";
 import styles from "./../../styles/myClass.module.css";
+import profileStyles from "../../styles/profile.module.css";
 import { storage } from "../../firebase/firebase";
 import Link from "next/link";
 import Head from "next/head";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function edits({ info }) {
-    const [showAlert, setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [update, setUpdate] = useState(info);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(null);
@@ -59,46 +60,56 @@ function edits({ info }) {
               <h3>PROFILE UPDATE</h3>
             </div>
             <div>
-        {showAlert && (
-          <Alert
-            type="success"
-            message="Successful"
-            description="Profile Updated"
-            style={{ backgroundColor: "#5cb85c" }}
-            closable
-          />
-        )}
-      </div>
+              {showAlert && (
+                <Alert
+                  type="success"
+                  message="Successful"
+                  description="Profile Updated"
+                  style={{ backgroundColor: "#5cb85c" }}
+                  closable
+                />
+              )}
+            </div>
             <div className={styles.projectHeader2}>
               <div className={styles.projectHeaderSec1}>
                 <div>
-                  <div className={styles.container}>
+                  <div className={profileStyles.container}>
                     <form onSubmit={handleSubmit}>
-                      <label>FirstName</label>
-                             {" "}
-                      <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
-                      <br />
-                      <br />
-                      <label>LastName</label>
-                      <input name="lastName" value={update.lastName} onChange={handleChange} />   
-                      <br />
-                      <br />
-                      <label>Telephone Number</label>
-                      <input type="text" value={update.tele} name="tele" onChange={handleChange} />
-                      <br />
-                      <br />
-                      <label>Github Handle</label>
-                      <input
-                        type="text"
-                        value={update.github}
-                        name="github"
-                        onChange={handleChange}
-                      />
-                      <br />
-                      <br />     {" "}
-                      <Button variant="contained" color="primary" type="submit">
-                        Edit
-                      </Button>
+                      <div>
+                        <label>FirstName</label>
+                        <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
+                      </div>
+                      <div>
+                        <label>LastName</label>
+                        <input name="lastName" value={update.lastName} onChange={handleChange} />   
+                      </div>
+                      <div>
+                        <label>Telephone Number</label>
+                        <input
+                          type="text"
+                          value={update.tele}
+                          name="tele"
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div>
+                        <label>Github Handle</label>
+                        <input
+                          type="text"
+                          value={update.github}
+                          name="github"
+                          onChange={handleChange}
+                        />
+                      </div>
+                       
+                      <button
+                        className={profileStyles.editbtn}
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                      >
+                        submit
+                      </button>
                            {" "}
                     </form>
                   </div>

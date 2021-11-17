@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./../../styles/myClass.module.css";
+import styles from "./../../styles/profile.module.css";
 import { db } from "./../../firebase/firebase";
 import { getDoc, getDocs, collection, doc } from "firebase/firestore";
 import FlagIcon from "@material-ui/icons/Flag";
@@ -22,9 +22,7 @@ const Profileid = ({ info }) => {
               <div className={styles.projectHeaderSec1}>
                 <div>
                   <div className={styles.container}>
-                    <h4 style={{ color: "#096691", fontWeight: "900" }}>
-                      {info.coName}
-                    </h4>
+                    <h4 style={{ color: "#096691", fontWeight: "900" }}>{info.coName}</h4>
                     <p>
                       <span> Avatar </span>
                       <img
@@ -55,9 +53,7 @@ const Profileid = ({ info }) => {
             </div>
 
             <Link href="/updates/[id]" as={`/updates/${info.id}`} passHref>
-              <Button variant="contained" color="primary">
-                Update
-              </Button>
+              <button className={styles.btn}>Update</button>
             </Link>
           </div>
         </div>
@@ -69,7 +65,7 @@ const Profileid = ({ info }) => {
 export const getStaticProps = async (context) => {
   const docRef = doc(db, "profileApplications", context.params.id);
   const docSnap = await getDoc(docRef);
-  const info = {id: docSnap.id, ...docSnap.data()};
+  const info = { id: docSnap.id, ...docSnap.data() };
 
   return {
     props: {
