@@ -40,6 +40,14 @@ const Profileid = ({ info }) => {
                       <span>LastName:</span> {info.lastName}
                     </p>
                     <p>
+                      <span>Telephone Number: </span>
+                      {info.tele}
+                    </p>
+                    <p>
+                      <span>Github Handle: </span>
+                      {info.github}
+                    </p>
+                    <p>
                       <span>JobTitle: </span>
                       {info.jobTItle}
                     </p>

@@ -38,7 +38,7 @@ function Profile() {
     lastName: "",
     tele: "",
     github:"",
-    jobTitle:"",
+    jobTItle:"",
     imageUrl: "",
   });
 
@@ -53,6 +53,7 @@ function Profile() {
       .catch((error) => {
         console.error("Error occurred while adding profile", error);
       });
+      console.log(data)
       // form.resetFields();
   };
 
@@ -128,7 +129,7 @@ function Profile() {
             required
           />
 
-<select required onChange={handleChange} value={data.jobTitle} name="jobTitle">
+<select value={data.jobTItle} name="jobTItle" onChange={handleChange} required>
             <option value="" disabled selected>
               Job title
             </option>

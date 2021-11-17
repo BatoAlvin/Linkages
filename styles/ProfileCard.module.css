@@ -12,6 +12,7 @@
   height: 100%;
   width: 100%;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .details {
   /* border:2px solid #d9e0e8; */
