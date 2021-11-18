@@ -21,15 +21,15 @@ function Profiles({ data }) {
                     <div className={styles.pic}>
                       <img
                         src={info.imageUrl}
-                        className={styles.pic}
-                        width="100%"
-                        height="240"
+                        className={styles.pic_a}
+                        // width="100%"
+                        // height="240"
                         unptimized="true"
                       />
                     </div>
 
                     <p className={styles.title}>
-                      {info.fisrtName} <span>{info.lastName}</span>
+                      {info.fisrtName} {info.lastName}
                     </p>
                     <p className={styles.description}>{info.jobTItle}</p>
                   </a>
