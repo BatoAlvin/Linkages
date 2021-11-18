@@ -130,6 +130,12 @@
   }
 }
 
+@media screen and (max-width: 550px) {
+  .footer {
+    width: 128vh;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .footer {
     width: 125vh;
