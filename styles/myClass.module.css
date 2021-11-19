@@ -157,7 +157,7 @@ c.myClassSection {
 
 .projectHeaderSec2 button {
   margin: 0.5rem 0;
-  padding: 0.6rem;
+  padding: 0.4rem;
   background: #096691;
   box-shadow: none;
   color: white;
@@ -250,6 +250,12 @@ c.myClassSection {
   border-spacing: 2rem;
 }
 
+@media screen and (max-width: 780px) {
+  .projectHeaderSec2 {
+    width: 50%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .projectHeader2 {
     all: unset;
@@ -273,7 +279,7 @@ c.myClassSection {
 }
 .pic {
   width: 220px;
-  /* height: 100px; */
+  height: 220px;
   margin-left: 2%;
   margin-right: 2%;
   border-radius: 50%;

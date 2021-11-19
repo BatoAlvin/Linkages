@@ -81,7 +81,7 @@ function edits({ info }) {
                       </div>
                       <div>
                         <label>LastName</label>
-                        <input name="lastName" value={update.lastName} onChange={handleChange} />   
+                        <input name="lastName" value={update.lastName} onChange={handleChange} />
                       </div>
                       <div>
                         <label>Telephone Number</label>

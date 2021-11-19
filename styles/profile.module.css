@@ -92,15 +92,20 @@ c.myClassSection {
 .container div {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 5px 0;
+  align-items: center;
+  padding: 7px 0;
 }
 
 .container div input {
   padding: 3px 8px;
   margin-left: 10px;
+  width: 260px;
   border: 1px solid gray;
   border-radius: 3px;
+}
+.lname > input {
+  padding-left: 20px;
+  margin-right: 0;
 }
 .editbtn {
   padding: 0.4rem;
@@ -117,6 +122,8 @@ c.myClassSection {
 .editbtn:hover {
   cursor: pointer;
   background-color: #1286b8;
+}
+@media screen and (max-width: 780px) {
 }
 
 @media screen and (max-width: 600px) {
@@ -139,6 +146,12 @@ c.myClassSection {
     align-items: center;
     flex-direction: column;
   }
+  .container div {
+    padding: 25px 0;
+  }
+  .container div input {
+    width: auto;
+  }
 }
 .pic {
   width: 220px;
@@ -149,14 +162,12 @@ c.myClassSection {
 }
 @media screen and (max-width: 780px) {
   .messagesContainer2 {
-    /* height: 50vh; */
     margin-left: 180px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .myClassSection {
-    /* margin-left: 70px; */
     width: 100%;
   }
   .messagesContainer {
@@ -174,9 +185,13 @@ c.myClassSection {
   .btn {
     margin-left: 23rem;
     margin-top: 1.5rem;
-    padding: 16px 20px;
+    padding: 1rem 1.25rem;
     border-radius: 5px;
     font-size: large;
+  }
+  .editbtn {
+    width: 200px;
+    margin-left: 15.25rem;
   }
 }
 

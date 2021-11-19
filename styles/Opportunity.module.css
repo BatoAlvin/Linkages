@@ -22,7 +22,6 @@
 }
 .selectFilter {
   padding: 7.3px 25px;
-
   width: 150px;
   height: 35px;
   border-radius: 0 3px 3px 0;
@@ -103,6 +102,9 @@
   .read {
     font-size: 28px;
   }
+  .selectFilter {
+    padding: 9px 25px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -137,14 +139,15 @@
 
   .selectFilter,
   .search1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: 11px 30px;
+    height: 50px;
   }
   .selectFilter option {
     font-size: 13px;
   }
   .read {
-    font-size: 32px;
+    font-size: 36px;
   }
 }
 
@@ -153,6 +156,6 @@
     width: 90vh;
   }
   .read {
-    font-size: 34px;
+    font-size: 37px;
   }
 }
