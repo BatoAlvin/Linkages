@@ -8,38 +8,39 @@ import { collection, getDocs } from "firebase/firestore";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 
 import { Grid, Paper } from "@material-ui/core";
+import { useSession, getSession } from "next-auth/react"
 
 const theme = createTheme({
-  typography: {
-    fontFamily: "Montserrat, sans-serif",
-    fontWeightRegular: 500,
-    body2: {
-      fontWeight: 600,
-      fontSize: "0.93rem",
-      "@media (max-width:600px)": {
-        fontSize: "2.1rem",
+    typography: {
+      fontFamily: "Montserrat, sans-serif",
+      fontWeightRegular: 500,
+      body2: {
+        fontWeight: 600,
+        fontSize: "0.93rem",
+        "@media (max-width:600px)": {
+          fontSize: "2.1rem",
+        },
+      },
+      h5: {
+        fontWeight: 620,
+        fontSize: 22,
+        color: "#41ad48",
+        "@media (max-width:600px)": {
+          fontSize: "2.2rem",
+        },
+      },
+      h6: {
+        fontWeight: 620,
+        fontSize: 20,
+        "@media (max-width:600px)": {
+          fontSize: "2.2rem",
+        },
       },
     },
-    h5: {
-      fontWeight: 620,
-      fontSize: 22,
-      color: "#41ad48",
-      "@media (max-width:600px)": {
-        fontSize: "2.2rem",
-      },
-    },
-    h6: {
-      fontWeight: 620,
-      fontSize: 20,
-      "@media (max-width:600px)": {
-        fontSize: "2.2rem",
-      },
-    },
-  },
-});
+  });
 
-//to view the projects added by admin
-const Classwork = ({ data }) => {
+export default function Job({ data }) {
+  const { data: session, status } = useSession()
   const [datas, setData] = useState(data);
   const [search, setSearch] = useState("");
   const getData = async () => {
@@ -54,6 +55,7 @@ const Classwork = ({ data }) => {
     return dataArr;
   };
 
+  
   const handleChange = async (e) => {
     const { value } = e.target;
     const newData = await getData();
@@ -64,8 +66,21 @@ const Classwork = ({ data }) => {
     console.log(filtered);
     value === "" ? setData(data) : setData(filtered);
   };
+
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
-    <ThemeProvider theme={theme}>
+    <>
+    
+
+      <ThemeProvider theme={theme}>
       <Head>
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
@@ -130,32 +145,31 @@ const Classwork = ({ data }) => {
         </Grid>
       </Grid>
     </ThemeProvider>
-  );
-};
 
-export default Classwork;
+
+    </>
+  )
+}
 
 export const getServerSideProps = async () => {
-  let data = [];
-  try {
-    const projects = await getDocs(collection(db, "jobs"));
-
-    projects.forEach((doc) => {
-      return data.push({
-        ...doc.data(),
-        id: doc.id,
+    let data = [];
+    try {
+      const projects = await getDocs(collection(db, "jobs"));
+  
+      projects.forEach((doc) => {
+        return data.push({
+          ...doc.data(),
+          id: doc.id,
+        });
       });
-    });
-    console.log(data);
-  } catch (err) {
-    // console.log(err);
-  }
-
-  return {
-    props: {
-      data,
-    },
-  };
-};
-
-//to view the projects added by admin
+      console.log(data);
+    } catch (err) {
+      // console.log(err);
+    }
+  
+    return {
+      props: {
+        data,
+      },
+    };
+}

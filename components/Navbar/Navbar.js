@@ -43,11 +43,12 @@ export default function Navbar() {
         <ul
           className={`${styles.links} ${showlinks ? `${styles.hidden}` : ""}`}
         >
-          <li className={styles.navlink}>
-            <Link href="/" passHref={true}>
+<li className={styles.navlink}>
+            <Link href="/job" passHref={true}>
               Jobs
             </Link>
           </li>
+
           <li className={styles.navlink}>
             <Link href="/profile" passHref={true}>
               Create profile
@@ -58,14 +59,10 @@ export default function Navbar() {
               All profiles
             </Link>
           </li>
+       
           <li className={`${styles.navlink}`}>
-            <Link href="/signup" passHref={true}>
-              Sign Up
-            </Link>
-          </li>
-          <li className={`${styles.navlink}`}>
-            <Link href="/play" passHref={true}>
-              Play
+            <Link href="/" passHref={true}>
+              Signup
             </Link>
           </li>
         </ul>
