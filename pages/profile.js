@@ -11,28 +11,30 @@ import { Typography } from "@material-ui/core";
 import "antd/dist/antd.css";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { blue } from "@material-ui/core/colors";
+import { useSession, getSession } from "next-auth/react"
+
 
 const useStyles = makeStyles({
-  btn: {
-    backgroundColor: "#0072a1",
-    color: "white",
-    marginTop: "7.9rem",
-    "&:hover": {
+    btn: {
       backgroundColor: "#0072a1",
+      color: "white",
+      marginTop: "7.9rem",
+      "&:hover": {
+        backgroundColor: "#0072a1",
+      },
     },
-  },
-});
+  });
 
-function Profile() {
-  const classes = useStyles();
+
+export default function Profile() {
+    const classes = useStyles();
+  const { data: session, status } = useSession()
 
   const db = getFirestore();
   const [showAlert, setShowAlert] = useState(false);
-
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [url, setUrl] = useState(null);
-
   const [data, setData] = useState({
     fisrtName: "",
     lastName: "",
@@ -60,21 +62,32 @@ function Profile() {
   const handleChange = (e) =>
     setData({ ...data, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    const storageRef = ref(storage, `image/${file.name}`);
-    await uploadBytesResumable(storageRef, file);
-    const downloadURL = await getDownloadURL(storageRef);
-    console.log(downloadURL);
-    setUrl(downloadURL);
-    setData({ ...data, imageUrl: downloadURL });
-    setFile(null);
-    setLoading(false);
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        const storageRef = ref(storage, `image/${file.name}`);
+        await uploadBytesResumable(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL);
+        setUrl(downloadURL);
+        setData({ ...data, imageUrl: downloadURL });
+        setFile(null);
+        setLoading(false);
+      };
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
 
   return (
-    <div className={styles.main}>
+    <>
+   
+
+      <div className={styles.main}>
       <div>
         {showAlert && (
           <Alert
@@ -191,7 +204,7 @@ function Profile() {
 
       </div>
     </div>
-  );
-}
 
-export default Profile;
+    </>
+  )
+}

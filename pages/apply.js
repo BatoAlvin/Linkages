@@ -11,22 +11,24 @@ import { Typography } from "@material-ui/core";
 import "antd/dist/antd.css";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { blue } from "@material-ui/core/colors";
+import { useSession, getSession } from "next-auth/react"
+
 
 const useStyles = makeStyles({
-  btn: {
-    backgroundColor: "#0072a1",
-    color: "white",
-    marginTop: "7.9rem",
-    "&:hover": {
+    btn: {
       backgroundColor: "#0072a1",
+      color: "white",
+      marginTop: "7.9rem",
+      "&:hover": {
+        backgroundColor: "#0072a1",
+      },
     },
-  },
-});
+  });
 
-function Apply() {
-  const classes = useStyles();
 
-  const db = getFirestore();
+export default function Apply() {
+    const classes = useStyles();
+    const db = getFirestore();
   const [showAlert, setShowAlert] = useState(false);
 
   const [loading, setLoading] = useState(false);
@@ -57,7 +59,8 @@ function Apply() {
   };
 
   const handleChange = (e) =>
-    setData({ ...data, [e.target.name]: e.target.value });
+  setData({ ...data, [e.target.name]: e.target.value });
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,8 +75,21 @@ function Apply() {
     setLoading(false);
   };
 
+  const { data: session, status } = useSession()
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
-    <div className={styles.main}>
+    <>
+    
+
+      <div className={styles.main}>
       <div>
         {showAlert && (
           <Alert
@@ -185,7 +201,6 @@ function Apply() {
 
       </div>
     </div>
-  );
+    </>
+  )
 }
-
-export default Apply;

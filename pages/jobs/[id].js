@@ -6,10 +6,22 @@ import FlagIcon from "@material-ui/icons/Flag";
 import Jobapplication from "../../components/Jobapplication";
 import Link from "next/link";
 import {Button,Typography} from "@material-ui/core"
+import { useSession, getSession } from "next-auth/react"
 
-const Project = ({ info }) => {
+export default function Project({ info }) {
+  const { data: session, status } = useSession()
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
     <>
+  
       <Head>
         <title>Job Description</title>
       </Head>
@@ -71,8 +83,10 @@ const Project = ({ info }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
+
+
 
 export const getServerSideProps = async (context) => {
   const docRef = doc(db, "jobs", context.params.id);
@@ -87,5 +101,3 @@ export const getServerSideProps = async (context) => {
     },
   };
 };
-
-export default Project;

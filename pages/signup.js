@@ -1,5 +1,6 @@
 import styles from "../styles/SignUp.module.css";
 import Image from "next/image";
+import { signInWithGoogle } from "../firebase/firebase";
 // import logo from "../../public/outboxedu logo.png";
 
 const signup = () => {
@@ -32,6 +33,11 @@ const signup = () => {
               <input placeholder="Enter your Email"></input>
               <input placeholder="Enter your Password"></input>
               <button>Sign Up</button>
+              
+  <button onClick={signInWithGoogle}  className={styles.loginwithgooglebtn}>Sign in with google</button>
+  {/* <h1>{localStorage.getItem('name')}</h1>
+  <h1>{localStorage.getItem('email')}</h1>
+  <img src={localStorage.getItem('profilePic')}/> */}
             </div>
           </div>
         </div>

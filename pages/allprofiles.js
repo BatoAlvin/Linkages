@@ -3,11 +3,24 @@ import { db } from "../firebase/firebase";
 import { collection, getDocs, doc } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession, getSession } from "next-auth/react"
 
-function Profiles({ data }) {
-  //console.log(data)
+export default function Profiles({ data }) {
+  const { data: session, status } = useSession()
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
-    <section className={styles.right}>
+    <>
+
+
+      <section className={styles.right}>
       <div className={styles.border}></div>
       <div></div>
 
@@ -40,30 +53,30 @@ function Profiles({ data }) {
         </div>
       </div>
     </section>
-  );
+    </>
+  )
 }
 
-export default Profiles;
-
 export const getServerSideProps = async () => {
-  let data = [];
-  try {
-    const projects = await getDocs(collection(db, "profileApplications"));
-
-    projects.forEach((doc) => {
-      return data.push({
-        ...doc.data(),
-        id: doc.id,
+    let data = [];
+    try {
+      const projects = await getDocs(collection(db, "profileApplications"));
+  
+      projects.forEach((doc) => {
+        return data.push({
+          ...doc.data(),
+          id: doc.id,
+        });
       });
-    });
-    console.log(data);
-  } catch (err) {
-    // console.log(err);
-  }
-
-  return {
-    props: {
-      data,
-    },
+      console.log(data);
+    } catch (err) {
+      // console.log(err);
+    }
+  
+    return {
+      props: {
+        data,
+      },
+    };
   };
-};
+  

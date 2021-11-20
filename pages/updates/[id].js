@@ -19,8 +19,10 @@ import { storage } from "../../firebase/firebase";
 import Link from "next/link";
 import Head from "next/head";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useSession, getSession } from "next-auth/react"
 
-function edits({ info }) {
+export default function Updates({ info }) {
+  const { data: session, status } = useSession()
   const [showAlert, setShowAlert] = useState(false);
   const [update, setUpdate] = useState(info);
   const [file, setFile] = useState(null);
@@ -36,6 +38,7 @@ function edits({ info }) {
     console.log("updated");
   };
 
+  
   const handleSubmits = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -49,8 +52,20 @@ function edits({ info }) {
     setLoading(false);
   };
 
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
-    <div>
+    <>
+ 
+
+      <div>
       <Head>{info.firstName} | Edit Profile</Head>
 
       <div className={styles.myClassSection}>
@@ -144,7 +159,10 @@ function edits({ info }) {
         </div>
       </div>
     </div>
-  );
+
+
+    </>
+  )
 }
 
 export const getStaticProps = async (context) => {
@@ -176,5 +194,3 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
-export default edits;

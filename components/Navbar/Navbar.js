@@ -58,11 +58,16 @@ export default function Navbar() {
               All profiles
             </Link>
           </li>
-          {/* <li className={`${styles.navlink}`}>
+          <li className={`${styles.navlink}`}>
             <Link href="/signup" passHref={true}>
               Sign Up
             </Link>
-          </li> */}
+          </li>
+          <li className={`${styles.navlink}`}>
+            <Link href="/play" passHref={true}>
+              Play
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

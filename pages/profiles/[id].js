@@ -6,9 +6,23 @@ import FlagIcon from "@material-ui/icons/Flag";
 import Link from "next/link";
 import { Button, Typography } from "@material-ui/core";
 
-const Profileid = ({ info }) => {
+import { useSession, getSession } from "next-auth/react"
+
+export default function Profileid({ info }) {
+  const { data: session, status } = useSession()
+
+  if (status === "loading") {
+    return <p>Loading...</p>
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>
+  }
+
   return (
     <>
+     
+
       <Head>
         <title>{info.fisrtName}Profile Description</title>
       </Head>
@@ -66,9 +80,12 @@ const Profileid = ({ info }) => {
           </div>
         </div>
       </div>
+
+
     </>
-  );
-};
+  )
+}
+
 
 export const getStaticProps = async (context) => {
   const docRef = doc(db, "profileApplications", context.params.id);
@@ -82,7 +99,6 @@ export const getStaticProps = async (context) => {
   };
 };
 
-export default Profileid;
 
 export async function getStaticPaths() {
   let data = [];

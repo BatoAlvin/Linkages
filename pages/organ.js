@@ -1,4 +1,3 @@
-import { useSession, signIn, signOut } from "next-auth/react"
 import OppCard from "../components/JobOpportunities/Card";
 import styles from "../styles/Opportunity.module.css";
 import Head from "next/head";
@@ -7,9 +6,8 @@ import { useState } from "react";
 import { db } from "../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+
 import { Grid, Paper } from "@material-ui/core";
-
-
 
 const theme = createTheme({
   typography: {
@@ -40,13 +38,10 @@ const theme = createTheme({
   },
 });
 
-
-export default function Component({ data }) {
-  const { data: session } = useSession()
+//to view the projects added by admin
+const Classwork = ({ data }) => {
   const [datas, setData] = useState(data);
   const [search, setSearch] = useState("");
-
-
   const getData = async () => {
     const dataArr = [];
     const projects = await getDocs(collection(db, "jobs"));
@@ -69,13 +64,8 @@ export default function Component({ data }) {
     console.log(filtered);
     value === "" ? setData(data) : setData(filtered);
   };
-  if (session) {
-    return (
-      <>
-        Signed in as Megatron{session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-
-        <ThemeProvider theme={theme}>
+  return (
+    <ThemeProvider theme={theme}>
       <Head>
         <title>EDU LINKAGES</title>
         <meta name="description" content="Become a software developer" />
@@ -140,18 +130,10 @@ export default function Component({ data }) {
         </Grid>
       </Grid>
     </ThemeProvider>
+  );
+};
 
-      </>
-    )
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  )
-}
-
+export default Classwork;
 
 export const getServerSideProps = async () => {
   let data = [];
@@ -175,3 +157,5 @@ export const getServerSideProps = async () => {
     },
   };
 };
+
+//to view the projects added by admin
