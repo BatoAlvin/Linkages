@@ -20,7 +20,7 @@ export default function Component() {
         </div>
         <div className={styles.signup_details}>
           <div className={styles.signup}>
-            <h1>Signed In</h1>
+            <h1>Signed In as {session.user.email}</h1>
             <div className={styles.form}>
               <button onClick={() => signOut()}>Sign Out</button>
               
