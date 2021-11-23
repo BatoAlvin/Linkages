@@ -20,7 +20,8 @@ export default function Component() {
         </div>
         <div className={styles.signup_details}>
           <div className={styles.signup}>
-            <h1>Signed In as {session.user.email}</h1>
+            <h1>Signed In as {session.user.name}</h1>
+            <img src={session.user.image}/>
             <div className={styles.form}>
               <button onClick={() => signOut()}>Sign Out</button>
               
@@ -51,7 +52,7 @@ export default function Component() {
             <h1>Not Signed In</h1>
             <div className={styles.form}>
 
-              <button onClick={() => signIn()}>Sign Up With Github</button>
+              <button onClick={() => signIn()}>Sign Up</button>
               
 
 
