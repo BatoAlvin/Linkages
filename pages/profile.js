@@ -106,45 +106,43 @@ export default function Profile() {
           autoComplete="off"
         >
           <h4 className={classes.heading}>Profile Application Form</h4>
+          <label className = {styles.label}>FirstName</label>
           <input
             type="text"
-            placeholder="FirstName"
             value={data.fisrtName}
             name="fisrtName"
             onChange={handleChange}
             required
           />
+           <label className = {styles.label}>LastName</label>
           <input
             type="text"
-            placeholder="lastName"
             value={data.lastName}
             name="lastName"
             onChange={handleChange}
             required
           />
          
-
+         <label className = {styles.label}>Telephone</label>
           <input
             type="text"
-            placeholder="Telephone"
             value={data.tele}
             name="tele"
             onChange={handleChange}
             required
           />
-
-<input
+             <label className = {styles.label}>Github Handle</label>
+           <input
             type="text"
-            placeholder="Github Handle"
             value={data.github}
             name="github"
             onChange={handleChange}
             required
           />
-
-<select value={data.jobTItle} name="jobTItle" onChange={handleChange} required>
+           <label className = {styles.label}>JobTItle</label>
+          <select value={data.jobTItle}  onChange={handleChange} required>
             <option value="" disabled selected>
-              Job title
+              Select
             </option>
             <option>Frontend</option>
             <option>Backend</option>
