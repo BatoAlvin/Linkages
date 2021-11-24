@@ -28,12 +28,21 @@
   margin: 0 1.5rem;
   font-size: 16px;
   color: #0171a3;
+  display: flex;
+  align-items: center ;
 }
 .navlink:hover,
 .active {
   color: #096691;
 }
-
+.navImage{
+  border-radius: 0%;
+  width: 2.8rem;
+  margin-left: .6rem;
+}
+.img{
+  width: 100%;
+}
 .user {
   display: flex;
   align-items: center;

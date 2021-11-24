@@ -76,7 +76,9 @@ export default function Component() {
 
           <li className={`${styles.navlink}`}>
           {session.user.name} 
-          <imge src={session.user.image}/>
+          <div className = {styles.navImage}>
+          <img src={session.user.image} className = {styles.img}/>
+          </div>
           <br />
         <button onClick={() => signOut()}>Sign out</button>
           </li>

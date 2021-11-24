@@ -21,7 +21,9 @@ export default function Component() {
         <div className={styles.signup_details}>
           <div className={styles.signup}>
             <h1>Signed In as {session.user.name}</h1>
-            <img src={session.user.image}/>
+            <div className = {styles.signupImage}>
+            <img src={session.user.image} className = {styles.Image}/>
+            </div>
             <div className={styles.form}>
               <button onClick={() => signOut()}>Sign Out</button>
               
