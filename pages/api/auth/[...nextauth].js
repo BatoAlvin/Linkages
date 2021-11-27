@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import GoogleProvider from 'next-auth/providers/google'
 import GithubProvider from "next-auth/providers/github"
+import { redirect } from "next/dist/server/api-utils"
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -15,4 +16,17 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
+  //Database setup
+  database: process.env.DATABASE_URL,
+  secret: process.env.SECRET,
+  session: {
+    jwt: true,
+  },
+  jwt: {},
+
+  callbacks: {
+    async redirect({ url, baseUrl}){
+      return baseUrl + "/job"
+    },
+  }
 })
