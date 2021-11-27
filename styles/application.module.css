@@ -7,85 +7,96 @@
   height: 600px;
   width: 50%;
   margin: 60px auto;
-  background-color: #f3f6f9;
+  padding: 1rem;
+  /* background-color: #f3f6f9; */
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .form {
   width: 100%;
   margin: 50px auto 0;
+  margin-left: 7rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   /* box-shadow: 2px 4px 4px 4px rgb(207, 207, 207); */
   border-radius: 6px;
 }
 .form h4 {
   font-size: 20px;
+  font-weight: 900;
+  color: #2980B9;
+}
+.label{
   font-weight: bold;
-  color: #0072a1;
+  margin-left: .4rem;
+  color: rgba(0, 0, 0, 0.753);
 }
 .form .btn {
   padding: 5px 9px;
-  width: 92px;
+  width: 30%;
   border-radius: 3px;
   border: none;
-  color: white;
-  background-color: #0072a1;
-  margin-top: 7.4rem;
+  color: #096692;
+  background-color: #f9fafb;
+  border: 1px solid #096692;
+  margin-top: 8.4rem;
   cursor: pointer;
   text-transform: uppercase;
 }
 .form .btn:hover {
-  background-color: #139fdb;
+  background-color: #096692;
+  color: #f9fafb;
+  transition: 200ms ease-in-out;
 }
 .form2 {
-  margin-top: 350px;
+  margin-top:22rem;
   position: absolute;
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 .form2 div {
-  width: 100%;
-  display: flex;
-  margin-left: 30px;
+  width:80%;
+  margin-left: 9rem;
+  color: rgba(0, 0, 0, 0.753);
 }
 .form2 div input {
   width: 100%;
   border: none;
 }
-.form input[type="file"]::file-selector-button {
+.form2 input[type="file"]::file-selector-button {
   background-color: #f3f6f9;
-  color: #3f51b5;
-  width: 50%;
-  height: 35px;
-  border: 1px solid #3f51b5;
+  color: #096692;
+  width: 20%;
+  height: 25px;
+  font-size: .6rem;
+  border: 1px solid #096692;
   border-radius: 5px;
   outline-style: none;
 }
-.form input[type="file"]::file-selector-button:hover {
-  background-color: #3f51b5;
+.form2 input[type="file"]::file-selector-button:hover {
+  background-color: #096692;
   color: #f3f6f9;
   border: 1px solid #f3f6f9;
   transition: 200ms ease-in-out;
 }
 .form2 button {
   background-color: #f3f6f9;
-  color: #3f51b5;
-  width: 40%;
+  color: #096692;
+  width: 20%;
   height: 35px;
-  border: 1px solid #3f51b5;
-  margin-top: 9px;
+  border: 1px solid #096692;
+  margin-top: 16px;
   margin-left: 32px;
   border-radius: 5px;
   outline-style: none;
   cursor: pointer;
+  margin-left: 9rem;
 }
 .form2 button:hover {
-  background-color: #3f51b5;
+  background-color: #096692;
   color: #f3f6f9;
   border: 1px solid #f3f6f9;
   transition: 200ms ease-in-out;
@@ -93,14 +104,14 @@
 .form input,
 .form select {
   width: 60%;
-  padding: 8px 13px;
+  padding: 4px 13px;
   margin-bottom: 10px;
-  border: 1px solid gray;
+  border: 1px solid rgba(0, 0, 0, 0.479);
   border-radius: 4px;
 }
 
 .form select {
-  padding: 10px 15px;
+  padding:7px 15px;
 }
 
 @media screen and (max-width: 780px) {
