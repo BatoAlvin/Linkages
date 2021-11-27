@@ -61,15 +61,17 @@
     margin-top: 1rem;
     margin-left: 4rem;
     border: none;
-    background-color: #262b41f6;
+    background-color: #096692;
     color: #fff;
     border-radius: 4px;
 }
 .form button:hover{
-    background-color: #262B41;
+    background-color: #ffff;
+    color: #096692;
 }
 .Image{
     border-radius: 50%;
+    /* width: 100%; */
 
 }
 .signupImage{
