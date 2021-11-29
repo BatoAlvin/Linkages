@@ -70,7 +70,7 @@ export default function Component() {
        
           <li className={`${styles.navlink}`}>
             <Link href="/" passHref={true}>
-              Signup
+              SignOut
             </Link>
           </li>
 
@@ -126,7 +126,7 @@ export default function Component() {
        
           <li className={`${styles.navlink}`}>
             <Link href="/" passHref={true}>
-              Signup
+              SignUp
             </Link>
           </li>
         </ul>
