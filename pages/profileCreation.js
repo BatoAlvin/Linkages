@@ -41,7 +41,20 @@ export default function profileForm() {
     const docRef = await addDoc(collection(db, "far"), data)
       .then((docRef) => {
         console.log("Jobapplication added", docRef.id);
-
+        setData({ fisrtName: "",
+        lastName: "",
+        jobTItle:"",
+        status:"",
+        email:"",
+        tele: "",
+        bio:"",
+        part1:"",
+        part2:"",
+        part3:"",
+        part4:"",
+        part5:"",
+        part6:"",
+        resume:"",})
         setShowAlert(true);
       })
       .catch((error) => {
