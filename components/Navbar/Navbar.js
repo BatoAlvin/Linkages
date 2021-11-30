@@ -58,7 +58,7 @@ export default function Component() {
           </li>
 
           <li className={styles.navlink}>
-            <Link href="/profile" passHref={true}>
+            <Link href="/profileCreation" passHref={true}>
               Create profile
             </Link>
           </li>
@@ -70,7 +70,7 @@ export default function Component() {
        
           <li className={`${styles.navlink}`}>
             <Link href="/" passHref={true}>
-              Signup
+              SignOut
             </Link>
           </li>
 

@@ -32,7 +32,7 @@ export default function Updates({ info }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const profileRef = doc(db, "profileApplications", info.id);
+    const profileRef = doc(db, "far", info.id);
     await updateDoc(profileRef, update);
     setShowAlert(true);
     console.log("updated");
@@ -107,15 +107,215 @@ export default function Updates({ info }) {
                           onChange={handleChange}
                         />
                       </div>
+
+
                       <div>
-                        <label>Github Handle</label>
+                        <label>Email</label>
                         <input
-                          type="text"
-                          value={update.github}
-                          name="github"
+                          type="email"
+                          value={update.email}
+                          name="email"
                           onChange={handleChange}
                         />
                       </div>
+
+
+                      <div>
+                        <label>Resume</label>
+                        <input
+                          type="text"
+                          value={update.resume}
+                          name="resume"
+                          onChange={handleChange}
+                        />
+                      </div>
+
+                      <div>
+                        <label>Bio</label>
+                        <textarea
+                          type="text"
+                          value={update.bio}
+                          name="bio"
+                          onChange={handleChange}
+                        />
+                      </div>
+
+
+                      <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">JobTitle</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="jobTItle"
+            value={update.jobTItle} 
+             onChange={handleChange}
+          
+          >
+            <option value="" disabled selected>
+              JobTitle
+            </option>
+            <option>Frontend Developer</option>
+            <option>Backend Developer</option>
+            <option>Full Stack Developer</option>
+            <option>Dev Ops</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Status</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="status"
+            value={update.status}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Status
+            </option>
+            <option>Intern</option>
+            <option>Volunteer</option>
+            <option>Part time Employed</option>
+            <option>Permanent Employed</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Technical Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part1"
+            value={update.part1}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Status
+            </option>
+            <option value="None">None</option>
+              <option value="Html">HTML</option>
+              <option value="Css">CSS</option>
+              <option value="React">React</option>
+              <option value="Javascript">Java Script</option>
+          </select>
+        </div>
+                      
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Other Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part2"
+            value={update.part2}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Select
+            </option>
+            <option value="None">None</option>
+              <option value="Html">HTML</option>
+              <option value="Css">CSS</option>
+              <option value="React">React</option>
+              <option value="Javascript">Java Script</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Other Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part3"
+            value={update.part3}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Select
+            </option>
+            <option value="None">None</option>
+              <option value="Html">HTML</option>
+              <option value="Css">CSS</option>
+              <option value="React">React</option>
+              <option value="Javascript">Java Script</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Other Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part4"
+            value={update.part4}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Select
+            </option>
+            <option value="None">None</option>
+              <option value="Nodejs">Node JS</option>
+              <option value="Express">Express</option>
+              <option value="Sql">SQL</option>
+              <option value="Mongoose">Mongoose</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Other Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part5"
+            value={update.part5}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Select
+            </option>
+            <option value="None">None</option>
+              <option value="Nodejs">Node JS</option>
+              <option value="Express">Express</option>
+              <option value="Sql">SQL</option>
+              <option value="Mongoose">Mongoose</option>
+          </select>
+        </div>
+
+
+        <div className="mb-2 d-flex flex-wrap">
+          <label className="form-label">Other Skills</label>
+          <select
+            className="form-select form-select-sm "
+            aria-label=".form-select-sm example"
+            name="part6"
+            value={update.part6}  
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled selected>
+              Select
+            </option>
+            <option value="None">None</option>
+              <option value="Nodejs">Node JS</option>
+              <option value="Express">Express</option>
+              <option value="Sql">SQL</option>
+              <option value="Mongoose">Mongoose</option>
+          </select>
+        </div>
+
+
                        
                       <button
                         className={profileStyles.editbtn}
@@ -123,7 +323,7 @@ export default function Updates({ info }) {
                         color="primary"
                         type="submit"
                       >
-                        submit
+                        Update
                       </button>
                            {" "}
                     </form>
@@ -166,7 +366,7 @@ export default function Updates({ info }) {
 }
 
 export const getStaticProps = async (context) => {
-  const docRef = doc(db, "profileApplications", context.params.id);
+  const docRef = doc(db, "far", context.params.id);
   const docSnap = await getDoc(docRef);
   const info = { id: docSnap.id, ...docSnap.data() };
   return {
@@ -178,7 +378,7 @@ export const getStaticProps = async (context) => {
 
 export async function getStaticPaths() {
   let data = [];
-  const projects = await getDocs(collection(db, "profileApplications"));
+  const projects = await getDocs(collection(db, "far"));
   projects.forEach((doc) => {
     return data.push({
       ...doc.data(),
