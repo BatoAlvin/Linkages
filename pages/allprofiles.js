@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession, getSession } from "next-auth/react"
 
-export default function Profiles({ data }) {
+export default function allprofiles({ data }) {
   const { data: session, status } = useSession()
 
   if (status === "loading") {
@@ -37,7 +37,7 @@ export default function Profiles({ data }) {
                         className={styles.pic_a}
                         // width="100%"
                         // height="240"
-                        unptimized="true"
+                        unoptimized="true"
                       />
                     </div>
 
@@ -60,7 +60,7 @@ export default function Profiles({ data }) {
 export const getServerSideProps = async () => {
     let data = [];
     try {
-      const projects = await getDocs(collection(db, "profileApplications"));
+      const projects = await getDocs(collection(db, "far"));
   
       projects.forEach((doc) => {
         return data.push({
