@@ -8,6 +8,7 @@ import styles from "./ProjectCard.module.css"
 // import { deepOrange } from '@mui/material/colors';
 export function UpLoadProfileImage() {
     return (
+      <form>
       <div>
       <div >
                       {/* <Avatar src="/images/project1.png" sx={{ width: 76, height: 76 }} /> */}
@@ -27,6 +28,7 @@ export function UpLoadProfileImage() {
                   </div>
       
               </div>
+              </form>
     )
 }
 

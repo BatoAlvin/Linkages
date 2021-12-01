@@ -30,6 +30,11 @@ export default function Component() {
   const { data: session } = useSession()
   const [showlinks, setShowlinks] = useState(false);
 
+  const [showMe, setShowMe] = useState(false);
+  function toggle(){
+    setShowMe(!showMe);
+  }
+
 
   if (session) {
     return (
@@ -51,30 +56,30 @@ export default function Component() {
         <ul
           className={`${styles.links} ${showlinks ? `${styles.hidden}` : ""}`}
         >
-<li className={styles.navlink}>
+<li className={styles.navlink} >
             <Link href="/job" passHref={true}>
-              Jobs
+           <a class="text-decoration-none">Jobs</a>
             </Link>
           </li>
 
           <li className={styles.navlink}>
-            <Link href="/profile" passHref={true}>
-              Create profile
+            <Link href="/profileCreation" passHref={true}>
+             <a class="text-decoration-none"> Create profile</a>
             </Link>
           </li>
           <li className={`${styles.navlink}`}>
             <Link href="/allprofiles" passHref={true}>
-              All profiles
+             <a class="text-decoration-none"> All profiles</a>
             </Link>
           </li>
        
-          <li className={`${styles.navlink}`}>
+          {/* <li className={`${styles.navlink}`}>
             <Link href="/" passHref={true}>
-              Signup
+              Signout
             </Link>
-          </li>
+          </li> */}
 
-          <li className={`${styles.navlink}`}>
+          <li className={`${styles.navlink}`} onClick={toggle}>
           {session.user.name} 
           <div className = {styles.navImage}>
           <img src={session.user.image} className = {styles.img}/>
@@ -84,7 +89,25 @@ export default function Component() {
           </li>
         </ul>
       </nav>
-
+      <div
+        style={{ display: showMe ? "block" : "none" }}
+        className={styles.menu}
+      >
+        <span className={styles.menuitem}>
+          <Link href="/profilepage">
+          <a className='nav-link my-0 text-white' activeclassname='activeLink'>
+            View Profile
+            </a>
+            </Link>
+        </span>
+        <span className={styles.menuitem}>
+          <Link href="/">
+          <a className='nav-link my-0 text-white' activeclassname='activeLink'>
+          Sign out
+            </a>
+            </Link>
+        </span>
+      </div>
 
 
       </>
