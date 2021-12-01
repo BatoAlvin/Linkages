@@ -134,11 +134,11 @@ c.myClassSection {
   padding: 2rem;
 }
 
-.projectHeaderSec1 {
+/* .projectHeaderSec1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
+} */
 
 .projectHeaderSec1 div {
   padding-left: 1rem;

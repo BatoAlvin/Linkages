@@ -94,7 +94,7 @@ export default function Component() {
         className={styles.menu}
       >
         <span className={styles.menuitem}>
-          <Link href="/profilepage">
+          <Link href="/profile">
           <a className='nav-link my-0 text-white' activeclassname='activeLink'>
             View Profile
             </a>

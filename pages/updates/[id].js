@@ -85,21 +85,21 @@ export default function Updates({ info }) {
                 />
               )}
             </div>
-            <div className={styles.projectHeader2}>
+            <div className= "d-flex justify-content-center flex-column  m-5" >
               <div className={styles.projectHeaderSec1}>
                 <div>
                   <div className={profileStyles.container}>
                     <form onSubmit={handleSubmit}>
-                      <div>
-                        <label>FirstName</label>
-                        <input name="fisrtName" value={update.fisrtName} onChange={handleChange} />
+                      <div className="mb-2">
+                        <label  className="form-label">FirstName : </label>
+                        <input name="fisrtName" className={styles.input} value={update.fisrtName} onChange={handleChange} />
                       </div>
-                      <div>
-                        <label>LastName</label>
+                      <div className="mb-2">
+                        <label className="form-label">LastName :</label>
                         <input name="lastName" value={update.lastName} onChange={handleChange} />
                       </div>
                       <div>
-                        <label>Telephone Number</label>
+                        <label>Telephone Number :</label>
                         <input
                           type="text"
                           value={update.tele}
@@ -110,7 +110,7 @@ export default function Updates({ info }) {
 
 
                       <div>
-                        <label>Email</label>
+                        <label>Email :</label>
                         <input
                           type="email"
                           value={update.email}
@@ -121,7 +121,7 @@ export default function Updates({ info }) {
 
 
                       <div>
-                        <label>Resume</label>
+                        <label>Resume :</label>
                         <input
                           type="text"
                           value={update.resume}
@@ -141,7 +141,7 @@ export default function Updates({ info }) {
                       </div>
 
 
-                      <div className="mb-2 d-flex flex-wrap">
+          <div className="mb-2 d-flex flex-wrap">
           <label className="form-label">JobTitle</label>
           <select
             className="form-select form-select-sm "
@@ -182,9 +182,9 @@ export default function Updates({ info }) {
           </select>
         </div>
 
-
-        <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Technical Skills</label>
+        <h5 className="h5 text-secondary mx-5">Technical Skills</h5>
+        <div className="d-flex flex-wrap">
+          <div className="mb-2 w-25 m-1">
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -206,8 +206,7 @@ export default function Updates({ info }) {
                       
 
 
-        <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Other Skills</label>
+        <div className="mb-2 w-25 m-1">
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -229,7 +228,6 @@ export default function Updates({ info }) {
 
 
         <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Other Skills</label>
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -248,10 +246,11 @@ export default function Updates({ info }) {
               <option value="Javascript">Java Script</option>
           </select>
         </div>
-
-
-        <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Other Skills</label>
+     </div>
+     <h5 className="h5 text-secondary mx-5">Other Skills</h5>
+     <div className="d-flex flex-wrap" >
+        <div className="mb-2 w-25 m-1">
+          
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -270,10 +269,10 @@ export default function Updates({ info }) {
               <option value="Mongoose">Mongoose</option>
           </select>
         </div>
+        
 
 
-        <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Other Skills</label>
+        <div className="mb-2 w-25 m-1">
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -294,8 +293,7 @@ export default function Updates({ info }) {
         </div>
 
 
-        <div className="mb-2 d-flex flex-wrap">
-          <label className="form-label">Other Skills</label>
+        <div className="mb-2 w-25 m-1">
           <select
             className="form-select form-select-sm "
             aria-label=".form-select-sm example"
@@ -314,7 +312,7 @@ export default function Updates({ info }) {
               <option value="Mongoose">Mongoose</option>
           </select>
         </div>
-
+</div>
 
                        
                       <button
@@ -330,7 +328,7 @@ export default function Updates({ info }) {
                   </div>
                 </div>
               </div>
-              <div className={styles.projectHeaderSec2}>
+              {/* <div className={styles.projectHeaderSec2}>
                 {!url && (
                   <form onSubmit={handleSubmits}>
                     <input
@@ -353,7 +351,7 @@ export default function Updates({ info }) {
                                                              
                   </form>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

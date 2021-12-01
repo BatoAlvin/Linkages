@@ -15,7 +15,8 @@ import BorderCss from "../styles/Border.module.css";
 import Image from 'next/image';
 import styles from "../styles/ProfileHeader.module.css";
 //import Image from "next/image";
-import { useSession, getSession } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react"
+
 
 export default function Heat({ data }) {
   const { datas: session, status } = useSession();
@@ -27,8 +28,8 @@ export default function Heat({ data }) {
   if (status === "unauthenticated") {
     return <p>Access Denied</p>;
   }
-
   return (
+    
     <>
       <div style={{ maxWidth: "100", margin: "auto auto" }}>
         <div>
@@ -55,7 +56,7 @@ export default function Heat({ data }) {
                 <span className={styles.p}>{info.tele}</span>
                 <span className={styles.p}>{info.email}</span> 
             </div>  
-                <Image src='/user.png' alt="name" width={150}  height={150} className={styles.img}/>
+                {/* <Image src={session.user.image} alt="name" width={150}  height={150} className={styles.img}/> */}
                 {/* <img src={userProfilePic} alt="img" width="150" height="150" className={styles.img}/>/ */}
             </div>
         </div> 

@@ -105,7 +105,7 @@ export default function profileForm() {
       </div>
 <div className="d-flex justify-content-center flex-column  m-5">
       <Header title="Individual profile form" />
-      <h5 className="h5 text-secondary mx-5 ">Profile Image</h5>
+      {/* <h5 className="h5 text-secondary mx-5 ">Profile Image</h5> */}
       {/* <UpLoadProfileImage /> */}
 
       {/* Form */}
@@ -183,7 +183,7 @@ export default function profileForm() {
 
         <div className="mb-2">
           <label className="form-label">Phone Number</label>
-          <input type="number" className="form-control" 
+          <input type="text" className="form-control" 
           value={data.tele}
           name="tele"
           onChange={handleChange}
@@ -194,7 +194,7 @@ export default function profileForm() {
           <label>Bio</label>
           <textarea
             className="form-control"
-            placeholder="About you in 500 words"
+            placeholder="About you in 20 words"
             id="floatingTextarea2"
           value={data.bio}
           name="bio"

@@ -98,10 +98,15 @@ c.myClassSection {
 
 .container div input {
   padding: 3px 8px;
-  margin-left: 10px;
-  width: 260px;
+  /* margin-left: 10px; */
+  width: 80%;
   border: 1px solid gray;
   border-radius: 3px;
+}
+.container div textarea{
+  width: 80%;
+  resize: none;
+  height: 60px;
 }
 .lname > input {
   padding-left: 20px;
