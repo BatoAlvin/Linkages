@@ -143,7 +143,7 @@ export default function profileForm() {
             required
           >
             <option value="" disabled selected>
-              JobTitle
+              JobTitles
             </option>
             <option>Frontend Developer</option>
             <option>Backend Developer</option>
