@@ -1,15 +1,12 @@
 import { Box, Card, CardContent, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import styles from "../../styles/Opportunity.module.css"
+import styles from "../../styles/Opportunity.module.css";
 
 const useStyles = makeStyles({
   root: {
-    // display: "flex",
-    // flexDirection: "column",
-    // justifyContent: "space-between",
+    backgroundColor: "#DEE6EE",
+    minHeight: 330,
     // width: "100%",
-    Height: 320,
-    width: "100%",
     cursor: "pointer",
   },
   btn: {
@@ -45,7 +42,6 @@ function OppCard({ company, location, paragraph, deadline, job }) {
         <Typography variant="body2" color="secondary">
           {deadline}
         </Typography>
-        
       </CardContent>
     </Card>
   );

@@ -67,6 +67,18 @@ c.myClassSection {
   background-color: green;
 }
 
+.applyBtn {
+  margin: 0.5rem 0;
+  margin-left: 4.2rem;
+  padding: 5px 10px;
+  background: #096691;
+  box-shadow: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 600px) {
   .classWorkContent {
     display: flex;

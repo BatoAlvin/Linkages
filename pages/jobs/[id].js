@@ -5,23 +5,22 @@ import { getDoc, collection, doc } from "firebase/firestore";
 import FlagIcon from "@material-ui/icons/Flag";
 import Jobapplication from "../../components/Jobapplication";
 import Link from "next/link";
-import {Button,Typography} from "@material-ui/core"
-import { useSession, getSession } from "next-auth/react"
+import { Button, Typography } from "@material-ui/core";
+import { useSession, getSession } from "next-auth/react";
 
 export default function Project({ info }) {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
   if (status === "loading") {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   if (status === "unauthenticated") {
-    return <p>Access Denied</p>
+    return <p>Access Denied</p>;
   }
 
   return (
     <>
-  
       <Head>
         <title>Job Description</title>
       </Head>
@@ -35,9 +34,7 @@ export default function Project({ info }) {
               <div className={styles.projectHeaderSec1}>
                 <div>
                   <div className={styles.container}>
-                    <h4 style={{ color: "#096691", fontWeight: "900" }}>
-                      {info.coName}
-                    </h4>
+                    <h4 style={{ color: "#096691", fontWeight: "900" }}>{info.coName}</h4>
                     <p>
                       <span>Qualifications :</span> {info.qualifications}
                     </p>
@@ -63,30 +60,20 @@ export default function Project({ info }) {
               <div className={styles.projectHeaderSec2}>
                 <FlagIcon style={{ fill: "#41AD48" }} />
                 <h4>
-                  PLEASE ALWAYS FOLLOW THE STANDARD PRINCIPLES WHILE CARRYING
-                  OUT YOUR APPLICATIONS.
+                  PLEASE ALWAYS FOLLOW THE STANDARD PRINCIPLES WHILE CARRYING OUT YOUR APPLICATIONS.
                 </h4>
               </div>
             </div>
-            
-            <Link href='/apply'>
-            <Button
-          variant="contained"
-          color="primary"
-          
-        >
-          Apply
-        </Button>
-        </Link>
 
+            <Link href="/apply">
+              <button className={styles.applyBtn}>Apply</button>
+            </Link>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
-
-
 
 export const getServerSideProps = async (context) => {
   const docRef = doc(db, "jobs", context.params.id);
